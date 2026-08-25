@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conversation Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Geist:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#201f1f",
+                      "surface-container-high": "#2a2a2a",
+                      "surface-variant": "#353534",
+                      "surface-dim": "#131313",
+                      "tertiary-fixed-dim": "#c9c6c4",
+                      "on-error-container": "#ffdad6",
+                      "outline-variant": "#4d4632",
+                      "inverse-surface": "#e5e2e1",
+                      "tertiary": "#f4f0ee",
+                      "on-tertiary-container": "#5d5b5a",
+                      "on-secondary-fixed-variant": "#5e4100",
+                      "outline": "#999077",
+                      "secondary": "#ffdb9f",
+                      "surface-tint": "#edc200",
+                      "on-surface": "#e5e2e1",
+                      "on-secondary-fixed": "#271900",
+                      "surface-container-lowest": "#0e0e0e",
+                      "inverse-primary": "#725c00",
+                      "on-primary-fixed-variant": "#564500",
+                      "on-background": "#e5e2e1",
+                      "surface-container-low": "#1c1b1b",
+                      "background": "#131313",
+                      "on-secondary-container": "#6b4b00",
+                      "on-tertiary-fixed-variant": "#484645",
+                      "surface": "#131313",
+                      "surface-bright": "#3a3939",
+                      "primary": "#fff0c8",
+                      "secondary-fixed-dim": "#ffba26",
+                      "on-tertiary-fixed": "#1c1b1b",
+                      "inverse-on-surface": "#313030",
+                      "error-container": "#93000a",
+                      "on-primary-container": "#6e5900",
+                      "secondary-container": "#ffb700",
+                      "on-tertiary": "#31302f",
+                      "surface-container-highest": "#353534",
+                      "on-secondary": "#422d00",
+                      "primary-container": "#fdd000",
+                      "tertiary-container": "#d7d4d2",
+                      "primary-fixed-dim": "#edc200",
+                      "error": "#ffb4ab",
+                      "on-error": "#690005",
+                      "primary-fixed": "#ffe07d",
+                      "on-primary": "#3b2f00",
+                      "secondary-fixed": "#ffdea9",
+                      "tertiary-fixed": "#e5e2e0",
+                      "on-primary-fixed": "#231b00",
+                      "on-surface-variant": "#d1c6ab"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-gap": "16px",
+                      "base-unit": "4px",
+                      "section-gap": "32px",
+                      "container-padding": "20px",
+                      "gutter": "12px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-lg-mobile": [
+                              "Hanken Grotesk"
+                      ],
+                      "label-caps": [
+                              "Geist"
+                      ],
+                      "display-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "mono-data": [
+                              "Geist"
+                      ],
+                      "title-md": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "mono-data": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        /* Pulse Animation for AI Active State */
+        @keyframes pulse-opacity {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .ai-pulse {
+            animation: pulse-opacity 2s ease-in-out infinite;
+        }
+        /* Custom scrollbar for chat */
+        .chat-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .chat-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .chat-scroll::-webkit-scrollbar-thumb {
+            background-color: #353534;
+            border-radius: 4px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased flex flex-col h-screen overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-background/80 backdrop-blur-xl border-b border-outline-variant/30 docked full-width top-0 z-50 flex flex-col items-center justify-between px-container-padding py-4 w-full md:flex-row relative">
+<div class="flex items-center gap-4 w-full">
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<div class="flex items-center gap-3">
+<img alt="Executive User Profile" class="w-10 h-10 rounded-full object-cover border border-outline-variant/50" data-alt="A professional headshot of a corporate executive in a dark, minimalist setting. High contrast lighting highlighting their facial features. The background is a solid deep gray or black, conveying a serious and authoritative tone. The image has a cinematic quality with sharp focus and subtle shadow details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTG2GvvIy5qpQVePH67hIrxmLyyGWl455A_qy6HfYX3_yachp1X-CGDsMCyd4cP1J9amS_L4rzLfINuLQXxoyI68Vy5PXLpOeb7gytZbt0oBuqfN30-t5rKqO6Z0o6ynVhwGpVNc8kylZrAAaLp8F9c3QEKCd1lbbjjMJOClBZdPr15sMx1DEHRYFd_kNjz_DBcuBUtaG4JDEDb9xke_iMO3qpItIJttnW5lgbimHCBWvyT3db4JYS"/>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-primary tracking-tight">Intelligence</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="font-label-caps text-label-caps text-secondary-container">AI Score 94</span>
+<div class="w-1 h-1 rounded-full bg-secondary-container ai-pulse"></div>
+</div>
+</div>
+</div>
+<div class="ml-auto flex items-center">
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Chat Canvas -->
+<main class="flex-1 overflow-y-auto chat-scroll p-container-padding flex flex-col gap-stack-gap bg-surface-container-lowest relative pb-[140px] md:pb-[100px]">
+<!-- Date Divider -->
+<div class="flex justify-center my-4">
+<span class="font-mono-data text-mono-data text-on-surface-variant bg-surface-container-high/50 backdrop-blur-md px-3 py-1 rounded-full text-xs">Today, 10:24 AM</span>
+</div>
+<!-- System Message / Lead Initial Contact -->
+<div class="flex flex-col gap-1 max-w-[85%] self-start">
+<div class="bg-surface-container-high border border-outline-variant/30 rounded-2xl rounded-tl-sm p-4 text-on-surface font-body-sm text-body-sm shadow-sm relative">
+<p>Hi there, I've been looking into your enterprise tier. We currently have about 50 reps using a mix of tools and it's getting messy.</p>
+</div>
+<span class="font-mono-data text-mono-data text-on-surface-variant text-[10px] ml-1">10:24 AM</span>
+</div>
+<!-- User Message -->
+<div class="flex flex-col gap-1 max-w-[85%] self-end items-end">
+<div class="bg-surface-variant text-on-surface border border-outline-variant/20 rounded-2xl rounded-tr-sm p-4 font-body-sm text-body-sm shadow-sm">
+<p>Hello! Thanks for reaching out. Consolidating tools is exactly where we shine. Are you looking to unify communication and analytics specifically?</p>
+</div>
+<span class="font-mono-data text-mono-data text-on-surface-variant text-[10px] mr-1">10:27 AM</span>
+</div>
+<!-- Lead Message -->
+<div class="flex flex-col gap-1 max-w-[85%] self-start">
+<div class="bg-surface-container-high border border-outline-variant/30 rounded-2xl rounded-tl-sm p-4 text-on-surface font-body-sm text-body-sm shadow-sm relative">
+<p>Yes, especially the analytics piece. We need real-time pipeline visibility for the exec team without them having to dig through raw data.</p>
+</div>
+<span class="font-mono-data text-mono-data text-on-surface-variant text-[10px] ml-1">10:35 AM</span>
+</div>
+<!-- User Message -->
+<div class="flex flex-col gap-1 max-w-[85%] self-end items-end">
+<div class="bg-surface-variant text-on-surface border border-outline-variant/20 rounded-2xl rounded-tr-sm p-4 font-body-sm text-body-sm shadow-sm">
+<p>Makes total sense. We have a dedicated 'AI Executive Summary' feature that rolls up pipeline health daily. Would you be open to a brief 10-min demo to see it in action?</p>
+</div>
+<span class="font-mono-data text-mono-data text-on-surface-variant text-[10px] mr-1">10:41 AM</span>
+</div>
+<!-- Lead Message -->
+<div class="flex flex-col gap-1 max-w-[85%] self-start">
+<div class="bg-surface-container-high border border-outline-variant/30 rounded-2xl rounded-tl-sm p-4 text-on-surface font-body-sm text-body-sm shadow-sm relative">
+<p>That sounds promising. I'm tied up the rest of the day, but perhaps tomorrow morning?</p>
+</div>
+<span class="font-mono-data text-mono-data text-on-surface-variant text-[10px] ml-1">10:52 AM</span>
+</div>
+<!-- AI Analysis Inline Card -->
+<div class="w-full mt-4 mb-2 flex justify-center">
+<div class="w-full max-w-lg bg-[#2A2929]/85 backdrop-blur-[16px] border border-[#444342] rounded-xl p-5 relative overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.5)]">
+<!-- Intent Bar -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-[#FFB700]"></div>
+<div class="flex items-start gap-4">
+<div class="flex-shrink-0 mt-1">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="flex-1 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant tracking-wider uppercase">AI Analysis</span>
+<div class="flex items-center gap-1.5 bg-surface-container-lowest/50 px-2 py-0.5 rounded-full border border-outline-variant/20">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container ai-pulse"></span>
+<span class="font-mono-data text-[10px] text-secondary-container font-medium">HIGH INTENT</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface mt-1">
+                            AI detected positive buying intent based on specific feature requests ("analytics piece", "pipeline visibility") and willingness to schedule.
+                        </p>
+<div class="mt-2 bg-surface-container/50 border border-outline-variant/20 rounded-lg p-3">
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-1">Recommended Action</p>
+<p class="font-body-sm text-body-sm text-secondary-container font-medium">Call this lead to lock in the demo slot immediately while intent is high.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Sticky Bottom CTA Area -->
+<div class="absolute bottom-0 left-0 right-0 p-container-padding bg-gradient-to-t from-background via-background/95 to-transparent pt-12 pb-8 z-40">
+<div class="max-w-xl mx-auto flex flex-col md:flex-row-reverse gap-4">
+<!-- Primary Action -->
+<button class="flex-1 bg-primary-container text-on-primary font-title-md text-title-md py-4 px-6 rounded-full flex items-center justify-center gap-2 hover:bg-primary-fixed transition-colors shadow-[0_4px_14px_0_rgba(253,208,0,0.39)] relative group">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+                Call Lead
+                <!-- Interaction subtle highlight -->
+<div class="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-10 transition-opacity"></div>
+</button>
+<!-- Secondary Action -->
+<button class="flex-1 bg-white/10 backdrop-blur-md border border-outline-variant/50 text-on-surface font-title-md text-title-md py-4 px-6 rounded-full flex items-center justify-center gap-2 hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">event</span>
+                Add Follow-up
+            </button>
+</div>
+</div>
+</body></html>

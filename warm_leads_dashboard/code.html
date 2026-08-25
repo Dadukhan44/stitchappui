@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Warm Leads</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Geist:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#201f1f",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353534",
+                        "surface-dim": "#131313",
+                        "tertiary-fixed-dim": "#c9c6c4",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#4d4632",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary": "#f4f0ee",
+                        "on-tertiary-container": "#5d5b5a",
+                        "on-secondary-fixed-variant": "#5e4100",
+                        "outline": "#999077",
+                        "secondary": "#ffdb9f",
+                        "surface-tint": "#edc200",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#271900",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-primary": "#725c00",
+                        "on-primary-fixed-variant": "#564500",
+                        "on-background": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "background": "#131313",
+                        "on-secondary-container": "#6b4b00",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "surface": "#131313",
+                        "surface-bright": "#3a3939",
+                        "primary": "#fff0c8",
+                        "secondary-fixed-dim": "#ffba26",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "inverse-on-surface": "#313030",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#6e5900",
+                        "secondary-container": "#ffb700",
+                        "on-tertiary": "#31302f",
+                        "surface-container-highest": "#353534",
+                        "on-secondary": "#422d00",
+                        "primary-container": "#fdd000",
+                        "tertiary-container": "#d7d4d2",
+                        "primary-fixed-dim": "#edc200",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "primary-fixed": "#ffe07d",
+                        "on-primary": "#3b2f00",
+                        "secondary-fixed": "#ffdea9",
+                        "tertiary-fixed": "#e5e2e0",
+                        "on-primary-fixed": "#231b00",
+                        "on-surface-variant": "#d1c6ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap": "16px",
+                        "base-unit": "4px",
+                        "section-gap": "32px",
+                        "container-padding": "20px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "label-caps": ["Geist"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "mono-data": ["Geist"],
+                        "title-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "mono-data": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background-color: rgba(42, 41, 41, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #444342;
+            box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05);
+        }
+        .ai-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .4; }
+        }
+        .btn-primary-glow {
+            box-shadow: 0 4px 14px 0 rgba(253, 208, 0, 0.39);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed bg-background/80 backdrop-blur-xl docked full-width top-0 border-b border-outline-variant/30 flat no shadows flex justify-between items-center px-container-padding py-4 w-full z-40 hidden md:flex">
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full overflow-hidden border border-outline-variant/50">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate executive in a dark, high-contrast lighting environment. The portrait is sharply focused with a modern, sleek aesthetic, fitting a premium CRM interface. The background is a blurred dark office setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG0TOg9f2kd_0U2sSpEuG8HL3hMJ1OawiaHJMMA7GT7oBsuG8GeNGM_dZrvqChzV9fy7ihbO-qqsUh_oEfRKjIV8bd1g1jZZjF-rXuQsiSAyjx9Csz0xfnLIPLYlcvX8H0L1m9za59V4Qt7Up-XUOgAK0qJKWjgli-kdg4UYXI3bdOLhPtZcqYjiNLuIEJktVyC5XFENIS4LozSTkSpocKPoan9yT73opGExXzWhvAsDWozMP6Kjtf"/>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-bold tracking-tight text-primary">Intelligence</h1>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-on-surface-variant font-body-lg hover:bg-surface-container-high transition-colors px-3 py-1.5 rounded-lg flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home</span>
+                Home
+            </a>
+<a class="text-primary font-body-lg font-semibold border-b-2 border-primary pb-1 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+                Leads
+            </a>
+<a class="text-on-surface-variant font-body-lg hover:bg-surface-container-high transition-colors px-3 py-1.5 rounded-lg flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">rocket_launch</span>
+                Outreach
+            </a>
+<a class="text-on-surface-variant font-body-lg hover:bg-surface-container-high transition-colors px-3 py-1.5 rounded-lg flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dynamic_feed</span>
+                Follow-ups
+            </a>
+</nav>
+<button class="text-on-surface-variant hover:bg-surface-container-high transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined">auto_awesome</span>
+</button>
+</header>
+<!-- Mobile Header -->
+<header class="fixed bg-background/80 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-container-padding py-4 w-full z-40 md:hidden top-0">
+<div class="flex items-center gap-3">
+<div class="h-8 w-8 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate executive in a dark, high-contrast lighting environment. The portrait is sharply focused with a modern, sleek aesthetic, fitting a premium CRM interface. The background is a blurred dark office setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu04lQawEH0Q8EBIFTixFXfTnrZ_P3Wqr8P72Q5oGIhSGD48qMP1m47OJpFi0yk9WurMSwuvceTmWQ62DfaRtqJeNLrm9DpcXGw9R_yvXeHGjEsBzfMoUWGuYPO5hrTP5v4aERdUL0NQyk9MhlDTbMa0ddghK5tYxcFnnHkNglbGkLLi5lnodPLYay1UthIb3Tz2HXmNr-PKulUYs1rJHzPJVr_McWymApyJaawadlT_jdJb4re-hi"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tight text-primary">Intelligence</h1>
+</div>
+<button class="text-on-surface-variant p-2">
+<span class="material-symbols-outlined">auto_awesome</span>
+</button>
+</header>
+<main class="pt-[88px] pb-[100px] md:pt-[104px] px-container-padding max-w-[1200px] mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-section-gap mt-4">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-background mb-2">Warm Leads</h2>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary-container text-sm">local_fire_department</span>
+<span class="font-body-sm text-body-sm">12 prospects showing buying intent</span>
+</div>
+</div>
+<div class="mt-4 md:mt-0 flex gap-3">
+<button class="bg-surface-container-high border border-outline-variant px-4 py-2 rounded-lg font-body-sm text-body-sm text-on-background flex items-center gap-2 hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                    Filter
+                </button>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="bg-surface-container border border-outline-variant rounded-lg pl-9 pr-4 py-2 font-body-sm text-body-sm text-on-background focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all w-full md:w-64" placeholder="Search leads..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Leads Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-stack-gap">
+<!-- Lead Card 1 - Hot -->
+<article class="glass-card rounded-xl p-5 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-[4px] bg-secondary-container"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="h-12 w-12 rounded-full overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A polished headshot of a female tech professional in her 30s. Dark mode aesthetic with dramatic side lighting. High-end corporate style, sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBESHA7Z0JOxyjihUjdduzaq_MjNzxMK6JU0E3u12tehAYm2HnsrAVOsDdNFRUs5w6YVcDl1O_4Bwa7SuT9bbE0t7QCVa3kjihnv12gGJ5PTM6lnPynUWSqPkI6UqPuXgcFee1rXPa74i1uP7q5FiVj9o1AObd34Cz0Rygjii7V5MM0ln6HvsLBLfdYvbnWuTYGP_P0nv8oa0fBgmK4Wbd29qx3O4gjedORb2BPA4aBvirigFfgBR_U"/>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-background">Sarah Jenkins</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">VP of Engineering, CloudCore</p>
+</div>
+</div>
+<div class="bg-secondary-container/20 border border-secondary-container/50 px-2 py-1 rounded text-secondary-container font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+                        HOT
+                    </div>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-2 font-mono-data text-mono-data text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Viewed pricing page 3x today</span>
+</div>
+<div class="flex items-center gap-2 font-mono-data text-mono-data text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container ai-pulse"></span>
+<span class="text-primary-container">AI: High probability to close this week.</span>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary-fixed btn-primary-glow font-body-lg text-body-lg font-semibold py-3 rounded-full flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+                    Call Lead
+                </button>
+</article>
+<!-- Lead Card 2 - Call Ready -->
+<article class="glass-card rounded-xl p-5 relative overflow-hidden group">
+<div class="absolute left-0 top-0 bottom-0 w-[4px] bg-primary-container/70"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="h-12 w-12 rounded-full bg-surface-variant flex items-center justify-center border border-outline-variant/30">
+<span class="font-title-md text-title-md text-on-surface">MD</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-background">Marcus Dunn</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Director of IT, Apex Systems</p>
+</div>
+</div>
+<div class="bg-primary/10 border border-primary/30 px-2 py-1 rounded text-primary font-label-caps text-label-caps flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">headset_mic</span>
+                        CALL READY
+                    </div>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-2 font-mono-data text-mono-data text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">mark_email_read</span>
+<span>Opened latest case study email</span>
+</div>
+<div class="flex items-center gap-2 font-mono-data text-mono-data text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container ai-pulse"></span>
+<span class="text-primary-container">AI: Best time to call is now.</span>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary-fixed btn-primary-glow font-body-lg text-body-lg font-semibold py-3 rounded-full flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+                    Call Lead
+                </button>
+</article>
+<!-- Lead Card 3 - Warm -->
+<article class="glass-card rounded-xl p-5 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="h-12 w-12 rounded-full overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A confident male executive in his 40s wearing a dark suit. The portrait uses dramatic rim lighting characteristic of a premium, dark mode app design. Focused and professional expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsX53IyrYqKN6PUlGsLPnjQMMGt-uh5EjZkZKExcnXYqLvYzxNAjCYp5Fiz8zMvYYnSxQsXywB-6LvxSTkSuvZtamfkIQVUj8KmNrXiIun9sg2VRPctmJ6rzPvH1gZPRXL2AJcbqfwwG_m80GF2vFfpKWCeqWM_loT4Q9Wm5vBb1hT82TSWThrMu22L4CoFR23ljWKxmZvRfUiHC9uF0-6-nQK6OUf8TZK3ipNbRH-OQ5cyO6uZkKH"/>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-background">Elena Rostova</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">CEO, Nova Tech</p>
+</div>
+</div>
+<div class="bg-surface-variant border border-outline-variant px-2 py-1 rounded text-on-surface-variant font-label-caps text-label-caps flex items-center gap-1">
+                        WARM
+                    </div>
+</div>
+<div class="space-y-2 mb-6">
+<div class="flex items-center gap-2 font-mono-data text-mono-data text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">group_add</span>
+<span>Added 2 new team members</span>
+</div>
+<div class="flex items-center gap-2 font-mono-data text-mono-data text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-variant"></span>
+<span>AI: Monitoring expansion signals.</span>
+</div>
+</div>
+<button class="w-full bg-white/10 border border-white/20 text-on-background font-body-lg text-body-lg font-semibold py-3 rounded-full flex items-center justify-center gap-2 hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined">mail</span>
+                    Send Email
+                </button>
+</article>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-4 left-4 right-4 rounded-full mx-auto max-w-md bg-surface-container/85 backdrop-blur-lg border border-outline-variant/20 shadow-[0_4px_24px_0_rgba(253,208,0,0.15)] z-50 flex justify-around items-center px-6 py-3 pb-safe md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary drop-shadow-[0_0_8px_rgba(253,208,0,0.6)] Active: scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-caps text-label-caps mt-1">Leads</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80" href="#">
+<span class="material-symbols-outlined">rocket_launch</span>
+<span class="font-label-caps text-label-caps mt-1">Outreach</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80" href="#">
+<span class="material-symbols-outlined">dynamic_feed</span>
+<span class="font-label-caps text-label-caps mt-1">Follow-ups</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80" href="#">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-caps text-label-caps mt-1">More</span>
+</a>
+</nav>
+</body></html>

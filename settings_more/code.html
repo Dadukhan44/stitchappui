@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Settings &amp; More - Intelligence CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Geist:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#201f1f",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353534",
+                        "surface-dim": "#131313",
+                        "tertiary-fixed-dim": "#c9c6c4",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#4d4632",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary": "#f4f0ee",
+                        "on-tertiary-container": "#5d5b5a",
+                        "on-secondary-fixed-variant": "#5e4100",
+                        "outline": "#999077",
+                        "secondary": "#ffdb9f",
+                        "surface-tint": "#edc200",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#271900",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-primary": "#725c00",
+                        "on-primary-fixed-variant": "#564500",
+                        "on-background": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "background": "#131313",
+                        "on-secondary-container": "#6b4b00",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "surface": "#131313",
+                        "surface-bright": "#3a3939",
+                        "primary": "#fff0c8",
+                        "secondary-fixed-dim": "#ffba26",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "inverse-on-surface": "#313030",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#6e5900",
+                        "secondary-container": "#ffb700",
+                        "on-tertiary": "#31302f",
+                        "surface-container-highest": "#353534",
+                        "on-secondary": "#422d00",
+                        "primary-container": "#fdd000",
+                        "tertiary-container": "#d7d4d2",
+                        "primary-fixed-dim": "#edc200",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "primary-fixed": "#ffe07d",
+                        "on-primary": "#3b2f00",
+                        "secondary-fixed": "#ffdea9",
+                        "tertiary-fixed": "#e5e2e0",
+                        "on-primary-fixed": "#231b00",
+                        "on-surface-variant": "#d1c6ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap": "16px",
+                        "base-unit": "4px",
+                        "section-gap": "32px",
+                        "container-padding": "20px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "label-caps": ["Geist"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "mono-data": ["Geist"],
+                        "title-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "mono-data": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background-color: rgba(42, 41, 41, 0.85); /* Jet at 85% */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #444342; /* Black Olive */
+            box-shadow: inset 1px 1px 0px 0px rgba(255,255,255,0.05); /* Simulating top-left light */
+        }
+        
+        .list-row {
+            transition: all 0.2s ease;
+        }
+        .list-row:hover {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+        
+        /* Thin scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #444342;
+            border-radius: 4px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-lg selection:bg-primary/20 selection:text-primary">
+<!-- TopAppBar -->
+<header class="bg-background/80 backdrop-blur-xl docked full-width top-0 border-b border-outline-variant/30 flat no shadows flex justify-between items-center px-container-padding py-4 w-full z-40 sticky">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/50">
+<img alt="Executive User Profile" class="w-full h-full object-cover" data-alt="A cinematic, high-contrast portrait of an executive user profile. The person is dressed sharply in modern dark business attire, subtly illuminated by a golden primary yellow accent light from the side, reinforcing a sense of authoritative, predictive AI intelligence. Dark, deep background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVKlaWWvAYYz_Ri5AlennRdyqrMbmd0dNnCJCuhoZRJn8CadpxLTWeEwXYnl8Nk1yS3WIQIgDQyBiQPPaFdRqG7SiJpUXClGgmkWMep_-7mIJ3EAZxJQHv-qI4urXK1sdMOCdmxEA_IaIxpJVzPf6-zbSUGL4FuKDQnQTtsZ5Me584uZVvok-ZXgLj_yMfaM7_O1uRxHZvp_mcNz4U4s1oqKIU1SkHN7fZvfzY8tunSEAwPR8EO3CO"/>
+</div>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg font-display-lg text-title-md text-primary tracking-tight font-extrabold text-center flex-1">Intelligence</h1>
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors rounded-full focus:outline-none focus:ring-2 focus:ring-primary/50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">auto_awesome</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-[1200px] mx-auto px-[20px] pt-section-gap pb-32">
+<div class="mb-section-gap">
+<h2 class="font-title-md text-title-md text-on-background mb-2">Settings &amp; Preferences</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Manage your account, AI behavior, and global configurations.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-stack-gap md:gap-section-gap">
+<!-- User Profile Summary Card -->
+<div class="md:col-span-4 flex flex-col gap-stack-gap">
+<div class="glass-panel rounded-xl p-container-padding relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-[2px] h-full bg-[#FFB700]"></div> <!-- Intent Bar -->
+<div class="flex items-center gap-4 mb-4">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary/20">
+<img alt="Alex Rivers Profile" class="w-full h-full object-cover" data-alt="Close up profile picture of a sales executive. Sharp lighting, deep shadows, hints of futuristic minimal UI elements glowing faintly in the background. The mood is serious, competent, and high-tech." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp99xG9c0YqcLqvFQDOO9SfR9xzjGGHyR6-ytwToNU8luOaxbQ5eDNYRiXgP_NbNAgK835j4R-Ir0vxZc4J8hVG1ghLbOB9InkIarVqCfONVHs1qeGbAxZDVbSn-KPOwavEvNkc_KKFbLUWMThN0jGCqIiGdzQxSTl2LQZKJ3dDZmcFzrmANF7OEPT0bRfPpoOk4qUoV2WKry_jl_X9QuznV6H3VLNE1GdG9IG0x735iX49FsWNALI"/>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-primary">Alex Rivers</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Global Sales Director</p>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex justify-between items-center">
+<span class="font-label-caps text-label-caps text-secondary-container">Premium Tier</span>
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary-container shadow-[0_0_8px_rgba(253,208,0,0.6)] animate-pulse"></div>
+<span class="font-mono-data text-mono-data text-on-surface-variant">System Active</span>
+</div>
+</div>
+</div>
+<!-- Quick Stats Mini Card -->
+<div class="glass-panel rounded-xl p-container-padding flex justify-between items-center">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-1">AI Insights Generated</span>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-on-background">1,248</span>
+</div>
+<span class="material-symbols-outlined text-primary/50 text-4xl" style="font-variation-settings: 'wght' 200;">psychology</span>
+</div>
+</div>
+<!-- Settings List -->
+<div class="md:col-span-8">
+<div class="glass-panel rounded-xl flex flex-col overflow-hidden">
+<!-- Profile -->
+<button class="list-row w-full flex items-center justify-between p-container-padding border-b border-outline-variant/20 focus:outline-none focus:bg-surface-container-high group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">person</span>
+</div>
+<div class="text-left">
+<span class="font-title-md text-body-lg text-on-background block">Profile</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Personal details and identity verification</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+</button>
+<!-- Connected Accounts -->
+<button class="list-row w-full flex items-center justify-between p-container-padding border-b border-outline-variant/20 focus:outline-none focus:bg-surface-container-high group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">sync_alt</span>
+</div>
+<div class="text-left">
+<span class="font-title-md text-body-lg text-on-background block">Connected Accounts</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">CRM integrations, email, and calendar</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+</button>
+<!-- AI Preferences (Highlighted) -->
+<button class="list-row w-full flex items-center justify-between p-container-padding border-b border-outline-variant/20 focus:outline-none focus:bg-surface-container-high group relative">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-0 bg-primary-container group-hover:h-8 transition-all duration-300"></div>
+<div class="flex items-center gap-4 pl-1">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary border border-primary/20 shadow-[0_0_15px_rgba(253,208,0,0.15)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">psychology</span>
+</div>
+<div class="text-left flex items-center gap-2">
+<div>
+<span class="font-title-md text-body-lg text-on-background block">AI Preferences</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Prediction models and automation thresholds</span>
+</div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary-container shadow-[0_0_6px_rgba(253,208,0,0.8)] animate-pulse ml-2"></div>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+</button>
+<!-- Outreach Settings -->
+<button class="list-row w-full flex items-center justify-between p-container-padding border-b border-outline-variant/20 focus:outline-none focus:bg-surface-container-high group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">campaign</span>
+</div>
+<div class="text-left">
+<span class="font-title-md text-body-lg text-on-background block">Outreach Settings</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cadence intervals and template defaults</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+</button>
+<!-- Notifications -->
+<button class="list-row w-full flex items-center justify-between p-container-padding border-b border-outline-variant/20 focus:outline-none focus:bg-surface-container-high group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">notifications</span>
+</div>
+<div class="text-left">
+<span class="font-title-md text-body-lg text-on-background block">Notifications</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Alert frequency and delivery channels</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+</button>
+<!-- Content Accounts -->
+<button class="list-row w-full flex items-center justify-between p-container-padding border-b border-outline-variant/20 focus:outline-none focus:bg-surface-container-high group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">folder_shared</span>
+</div>
+<div class="text-left">
+<span class="font-title-md text-body-lg text-on-background block">Content Accounts</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Asset libraries and tracking domains</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+</button>
+<!-- Subscription -->
+<button class="list-row w-full flex items-center justify-between p-container-padding border-b border-outline-variant/20 focus:outline-none focus:bg-surface-container-high group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">workspace_premium</span>
+</div>
+<div class="text-left">
+<span class="font-title-md text-body-lg text-on-background block">Subscription</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Billing, usage limits, and tier upgrades</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">chevron_right</span>
+</button>
+<!-- Help -->
+<button class="list-row w-full flex items-center justify-between p-container-padding focus:outline-none focus:bg-surface-container-high group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 300;">help</span>
+</div>
+<div class="text-left">
+<span class="font-title-md text-body-lg text-on-background block">Help</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Support center and documentation</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">open_in_new</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface-container/85 backdrop-blur-lg fixed bottom-4 left-4 right-4 rounded-full mx-auto max-w-md shadow-[0_4px_24px_0_rgba(253,208,0,0.15)] z-50 flex justify-around items-center px-6 py-3 pb-safe border border-outline-variant/20">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 focus:outline-none">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'wght' 200;">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 focus:outline-none">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'wght' 200;">group</span>
+<span class="font-label-caps text-label-caps">Leads</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 focus:outline-none">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'wght' 200;">rocket_launch</span>
+<span class="font-label-caps text-label-caps">Outreach</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 focus:outline-none">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'wght' 200;">dynamic_feed</span>
+<span class="font-label-caps text-label-caps">Follow-ups</span>
+</button>
+<!-- Active Tab: More -->
+<button class="flex flex-col items-center justify-center text-primary drop-shadow-[0_0_8px_rgba(253,208,0,0.6)] focus:outline-none scale-90 transition-transform">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'wght' 400, 'FILL' 1;">more_horiz</span>
+<span class="font-label-caps text-label-caps">More</span>
+</button>
+</nav>
+</body></html>

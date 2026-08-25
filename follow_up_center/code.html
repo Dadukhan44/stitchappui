@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Follow-ups</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Geist:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#201f1f",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353534",
+                        "surface-dim": "#131313",
+                        "tertiary-fixed-dim": "#c9c6c4",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#4d4632",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary": "#f4f0ee",
+                        "on-tertiary-container": "#5d5b5a",
+                        "on-secondary-fixed-variant": "#5e4100",
+                        "outline": "#999077",
+                        "secondary": "#ffdb9f",
+                        "surface-tint": "#edc200",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#271900",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-primary": "#725c00",
+                        "on-primary-fixed-variant": "#564500",
+                        "on-background": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "background": "#131313",
+                        "on-secondary-container": "#6b4b00",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "surface": "#131313",
+                        "surface-bright": "#3a3939",
+                        "primary": "#fff0c8",
+                        "secondary-fixed-dim": "#ffba26",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "inverse-on-surface": "#313030",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#6e5900",
+                        "secondary-container": "#ffb700",
+                        "on-tertiary": "#31302f",
+                        "surface-container-highest": "#353534",
+                        "on-secondary": "#422d00",
+                        "primary-container": "#fdd000",
+                        "tertiary-container": "#d7d4d2",
+                        "primary-fixed-dim": "#edc200",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "primary-fixed": "#ffe07d",
+                        "on-primary": "#3b2f00",
+                        "secondary-fixed": "#ffdea9",
+                        "tertiary-fixed": "#e5e2e0",
+                        "on-primary-fixed": "#231b00",
+                        "on-surface-variant": "#d1c6ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap": "16px",
+                        "base-unit": "4px",
+                        "section-gap": "32px",
+                        "container-padding": "20px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "label-caps": ["Geist"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "mono-data": ["Geist"],
+                        "title-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "mono-data": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background-color: rgba(42, 41, 41, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid #444342;
+            box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.05);
+        }
+        .ai-glow {
+            box-shadow: 0 4px 24px 0 rgba(253, 208, 0, 0.15);
+        }
+        .ai-pulse {
+            animation: pulse-glow 2s infinite alternate;
+        }
+        @keyframes pulse-glow {
+            0% { opacity: 0.4; box-shadow: 0 0 4px rgba(253, 208, 0, 0.2); }
+            100% { opacity: 1; box-shadow: 0 0 12px rgba(253, 208, 0, 0.8); }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg min-h-screen pb-[100px] flex flex-col md:flex-row">
+<!-- Desktop Sidebar (NavigationDrawer equivalent) -->
+<aside class="hidden md:flex flex-col w-80 bg-surface-container-low h-screen sticky top-0 border-r border-outline-variant/30 z-[60] shadow-xl">
+<div class="p-container-padding border-b border-outline-variant/20 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant/50">
+<img class="w-full h-full object-cover" data-alt="A striking portrait of a diverse professional in a sleek, dimly lit futuristic corporate environment. The lighting is cinematic with subtle warm yellow highlights contouring their features, matching a high-end corporate AI system aesthetic. The mood is confident, authoritative, and sharp, capturing the essence of modern executive leadership." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAofGfOHvvb6JufX0sjL2qcGQY-XGuTsh803lpxoj-4zVVr94l4O8CbF2I6PrM7XMIc5qVoAUAVXr3EPy6zV-lmxjgVijYmv95sr9ewjrY8w26-bt2FRdUaPL1fvffCxyluZ0ms8vBe2qtOhchpQC9UCtzbHBp9U0hpFgyEyTUKRkvAVUV-7_8stfePKjV7LAiC4KcIRr7TvxFIcP6vdwyZMOjWWmKUEK-CbBYpmU9FzK35hAK0QZW2"/>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-primary tracking-tight">Alex Rivers</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Global Sales Director</p>
+<p class="font-label-caps text-label-caps text-primary-container mt-1">Premium Tier</p>
+</div>
+</div>
+<nav class="flex-1 p-4 flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-title-md text-body-lg font-medium">AI Strategy</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+<span class="font-title-md text-body-lg font-medium">Pipeline Settings</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-title-md text-body-lg font-medium">Team Analytics</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg bg-primary-container text-on-primary-container transition-colors shadow-[0_4px_14px_0_rgba(253,208,0,0.2)]" href="#">
+<span class="material-symbols-outlined" data-icon="dynamic_feed">dynamic_feed</span>
+<span class="font-title-md text-body-lg font-bold">Follow-ups</span>
+</a>
+<a class="flex items-center gap-4 p-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors mt-auto" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-title-md text-body-lg font-medium">Account</span>
+</a>
+</nav>
+</aside>
+<main class="flex-1 w-full max-w-[1200px] mx-auto">
+<!-- TopAppBar -->
+<header class="md:hidden bg-background/80 backdrop-blur-xl docked full-width top-0 border-b border-outline-variant/30 flex justify-between items-center px-container-padding py-4 w-full sticky z-40">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/50">
+<img class="w-full h-full object-cover" data-alt="A highly detailed close-up portrait of a diverse corporate executive in a dark, high-contrast setting. A single beam of warm yellow light illuminates their face against a deep jet-black background, conveying intelligence, focus, and modern professionalism in a high-tech sales environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzWcvQmPdjlROqyxZIZX-mrF0H-Qe0eB7NGcRn0vkh5exL26xORnrWR9genC84ao8L4EndspDe-7mc3KsXyN0ONQRmgu216Id-ONNS1TRcVyoHB7mmQ_brEHeyKouMrBgkCbj1lmBkBvci1l-Qne7gqSIGh0z8cDSlS5Hd0cr-v_4kw6ZEcD__Sgo9MUvy3GRhxKPp6DG9pgtMBO-Z2uhwfzuiErsTn8Pglf7AXDHDDJM5CerrUoLt"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight font-bold">Follow-ups</h1>
+</div>
+<button class="text-primary hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</button>
+</header>
+<!-- Desktop Header Area -->
+<div class="hidden md:flex justify-between items-end px-container-padding py-8 border-b border-outline-variant/20 mb-8">
+<div>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight font-bold">Follow-ups</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">AI-prioritized engagement queue.</p>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-label-caps text-label-caps flex items-center gap-2 hover:bg-primary-fixed transition-colors ai-glow">
+<span class="material-symbols-outlined" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                Optimize Queue
+            </button>
+</div>
+<div class="px-container-padding py-6 md:py-0">
+<!-- Filter Chips -->
+<div class="flex gap-3 overflow-x-auto pb-4 mb-4 scrollbar-hide -mx-container-padding px-container-padding md:mx-0 md:px-0">
+<button class="flex-shrink-0 bg-primary-container text-on-primary-container px-5 py-2 rounded-full font-label-caps text-label-caps border border-primary-container ai-glow font-bold">
+                    TODAY (4)
+                </button>
+<button class="flex-shrink-0 bg-surface-container-high text-on-surface px-5 py-2 rounded-full font-label-caps text-label-caps border border-outline-variant/50 hover:border-primary/50 transition-colors">
+                    OVERDUE (1)
+                </button>
+<button class="flex-shrink-0 bg-surface-container-high text-on-surface px-5 py-2 rounded-full font-label-caps text-label-caps border border-outline-variant/50 hover:border-primary/50 transition-colors">
+                    UPCOMING (12)
+                </button>
+</div>
+<!-- Follow-up List -->
+<div class="flex flex-col gap-stack-gap md:grid md:grid-cols-2 lg:grid-cols-3">
+<!-- Card 1: Urgent/High Priority (AI Highlighted) -->
+<article class="glass-card rounded-xl p-5 relative overflow-hidden flex flex-col group md:col-span-2 lg:col-span-2">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary-container"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A crisp, professional headshot of a corporate client against a stark, dark grey background. The lighting is dramatic, emphasizing high-contrast minimalism. Subtle amber ambient light hints at an advanced, tech-forward business context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoa2X-c5qObKf5LbjVLghM_-WZuPuxKkdzciaLqI8pJfj_ntStd5PO1v7kONSHuBOqM3sqYJQEwvPPxfht7WyNhTIvYhubmKc-E9WI8xm23XlAcNRt8-60zoAb2DURIC5UHJr4pW2bxG-3ZcyBpuUUsVI_tAkCP0qa0Vh9XV8PXYLp7hrwi9r58E0htcoPpnpD2n_HK6niYh2RHl9jSHlj3xSDYHEKvnMlyOUcDW7wlspdxBDTT_zr"/>
+</div>
+<div>
+<h2 class="font-title-md text-title-md text-primary">Sarah Jenkins</h2>
+<p class="font-mono-data text-mono-data text-on-surface-variant flex items-center gap-1">
+                                    VP Procurement, Nexus Corp
+                                </p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-caps text-label-caps text-secondary-container bg-secondary-container/10 px-2 py-1 rounded flex items-center gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary-container ai-pulse"></div>
+                                HIGH INTENT
+                            </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">Last contact: 2h ago</span>
+</div>
+</div>
+<div class="mb-6 flex-1 bg-surface-container-lowest/50 rounded-lg p-4 border border-outline-variant/20">
+<p class="font-body-sm text-body-sm text-on-surface flex gap-2 items-start">
+<span class="material-symbols-outlined text-secondary-container text-[18px] mt-0.5" data-icon="auto_awesome">auto_awesome</span>
+<span>Sarah opened the Q3 pricing proposal 3 times in the last hour. She spent heavily on the 'Enterprise Add-ons' section. AI suggests proposing a bundled discount now.</span>
+</p>
+</div>
+<div class="flex justify-between items-center mt-auto">
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-outline-variant/50 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</button>
+<button class="w-10 h-10 rounded-full border border-outline-variant/50 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="phone">phone</span>
+</button>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-label-caps text-label-caps font-bold shadow-[0_4px_14px_0_rgba(253,208,0,0.39)] hover:scale-105 transition-transform flex items-center gap-2">
+                            Follow Up <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="glass-card rounded-xl p-5 relative overflow-hidden flex flex-col group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface font-title-md">
+                                MR
+                            </div>
+<div>
+<h2 class="font-title-md text-title-md text-on-surface">Marcus Reed</h2>
+<p class="font-mono-data text-mono-data text-on-surface-variant">CTO, DataSynergy</p>
+</div>
+</div>
+</div>
+<div class="mb-6 flex-1">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Last contact: Yesterday, 4:30 PM</p>
+<p class="font-body-sm text-body-sm text-on-surface border-l-2 border-outline-variant/50 pl-3">
+                            Requested technical specs on API integration. Follow up to confirm receipt and offer an engineering brief.
+                        </p>
+</div>
+<div class="flex justify-between items-center mt-auto">
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-outline-variant/50 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</button>
+</div>
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-full font-label-caps text-label-caps font-bold hover:bg-primary-fixed transition-colors">
+                            Follow Up
+                        </button>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="glass-card rounded-xl p-5 relative overflow-hidden flex flex-col group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-on-surface font-title-md">
+                                ET
+                            </div>
+<div>
+<h2 class="font-title-md text-title-md text-on-surface">Elena Torres</h2>
+<p class="font-mono-data text-mono-data text-on-surface-variant">Director, Horizon Ops</p>
+</div>
+</div>
+</div>
+<div class="mb-6 flex-1">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">Last contact: 3 days ago</p>
+<p class="font-body-sm text-body-sm text-on-surface border-l-2 border-outline-variant/50 pl-3">
+                            Check-in post product demo. Gauge interest in pilot program.
+                        </p>
+</div>
+<div class="flex justify-between items-center mt-auto">
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-outline-variant/50 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</button>
+</div>
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-full font-label-caps text-label-caps font-bold hover:bg-primary-fixed transition-colors">
+                            Follow Up
+                        </button>
+</div>
+</article>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden bg-surface-container/85 backdrop-blur-lg fixed bottom-4 left-4 right-4 rounded-full mx-auto max-w-md border border-outline-variant/20 shadow-[0_4px_24px_0_rgba(253,208,0,0.15)] z-50 flex justify-around items-center px-6 py-3 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors w-16" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors w-16" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-caps text-label-caps mt-1">Leads</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors w-16" href="#">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+<span class="font-label-caps text-label-caps mt-1">Outreach</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary drop-shadow-[0_0_8px_rgba(253,208,0,0.6)] scale-90 transition-transform w-16" href="#">
+<span class="material-symbols-outlined" data-icon="dynamic_feed" style="font-variation-settings: 'FILL' 1;">dynamic_feed</span>
+<span class="font-label-caps text-label-caps mt-1">Follow-ups</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors w-16" href="#">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+<span class="font-label-caps text-label-caps mt-1">More</span>
+</a>
+</nav>
+</body></html>

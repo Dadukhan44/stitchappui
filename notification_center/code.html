@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notifications - Intelligence CRM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Geist:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#201f1f",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353534",
+                        "surface-dim": "#131313",
+                        "tertiary-fixed-dim": "#c9c6c4",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#4d4632",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary": "#f4f0ee",
+                        "on-tertiary-container": "#5d5b5a",
+                        "on-secondary-fixed-variant": "#5e4100",
+                        "outline": "#999077",
+                        "secondary": "#ffdb9f",
+                        "surface-tint": "#edc200",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#271900",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-primary": "#725c00",
+                        "on-primary-fixed-variant": "#564500",
+                        "on-background": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "background": "#131313",
+                        "on-secondary-container": "#6b4b00",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "surface": "#131313",
+                        "surface-bright": "#3a3939",
+                        "primary": "#fff0c8",
+                        "secondary-fixed-dim": "#ffba26",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "inverse-on-surface": "#313030",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#6e5900",
+                        "secondary-container": "#ffb700",
+                        "on-tertiary": "#31302f",
+                        "surface-container-highest": "#353534",
+                        "on-secondary": "#422d00",
+                        "primary-container": "#fdd000",
+                        "tertiary-container": "#d7d4d2",
+                        "primary-fixed-dim": "#edc200",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "primary-fixed": "#ffe07d",
+                        "on-primary": "#3b2f00",
+                        "secondary-fixed": "#ffdea9",
+                        "tertiary-fixed": "#e5e2e0",
+                        "on-primary-fixed": "#231b00",
+                        "on-surface-variant": "#d1c6ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap": "16px",
+                        "base-unit": "4px",
+                        "section-gap": "32px",
+                        "container-padding": "20px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "label-caps": ["Geist"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "mono-data": ["Geist"],
+                        "title-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "mono-data": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0F0F0F;
+            color: #e5e2e1;
+        }
+        .glass-card {
+            background-color: rgba(42, 41, 41, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid #444342;
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.05);
+        }
+        .ai-pulse {
+            animation: pulse-opacity 2s infinite;
+        }
+        @keyframes pulse-opacity {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+        .ai-active-glow {
+            box-shadow: 0 4px 24px 0 rgba(253, 208, 0, 0.15);
+        }
+        .btn-primary {
+            box-shadow: 0 4px 14px 0 rgba(253, 208, 0, 0.39);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar (Web & Mobile) -->
+<header class="sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/30 flex justify-between items-center px-container-padding py-4 w-full">
+<div class="flex items-center gap-3">
+<img alt="Executive User Profile" class="w-10 h-10 rounded-full object-cover border border-outline-variant" data-alt="A small, circular profile avatar of a confident executive user wearing a dark blazer against a subtle gradient background in a high-tech CRM interface. Dark mode aesthetic with sharp contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDcn5rWu4WDWSkukD8TelNbdsQayURDhZvjvQlDdx1YHvFaxBtUvt3nXd-pByYhDrhemN3It1bhvRNb0VhPZnkxWCgQN6nkh3pa45D_17cLSgCxJfNAQ0L174GiSpJU9gRtcO8g_PeoMBdMBIu8N1q6Mq0UCmiD4XfmaVR0SsReb7sKV8HQ4iL0-XFsxTqqCZRcJO5zuKVdOB78RSK3Kl4ISof6joVDD1YsqM4uJOkBB4MyQF3T0ab"/>
+<span class="font-headline-lg-mobile md:font-headline-lg text-primary tracking-tight">Intelligence</span>
+</div>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-title-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home</span> Home
+            </a>
+<a class="font-title-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">group</span> Leads
+            </a>
+<a class="font-title-md text-primary hover:bg-surface-container-high transition-colors flex items-center gap-2 px-3 py-1 rounded-lg bg-surface-container-highest" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span> Notifications
+            </a>
+</div>
+<button class="text-primary hover:bg-surface-container-high transition-colors rounded-full p-2 md:hidden">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</button>
+</header>
+<main class="max-w-4xl mx-auto px-container-padding py-section-gap w-full flex flex-col gap-stack-gap">
+<!-- Header & Tabs -->
+<div class="flex flex-col gap-4 sticky top-[72px] z-40 bg-[#0F0F0F]/90 backdrop-blur-md pt-2 pb-4 -mx-container-padding px-container-padding">
+<h1 class="font-display-lg text-primary">Notifications</h1>
+<div class="flex gap-2 overflow-x-auto no-scrollbar py-1">
+<button class="px-4 py-2 rounded-full bg-primary-container text-on-primary-container font-label-caps whitespace-nowrap transition-transform active:scale-95">All</button>
+<button class="px-4 py-2 rounded-full border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-caps whitespace-nowrap hover:bg-surface-container-highest transition-colors active:scale-95">AI Activity</button>
+<button class="px-4 py-2 rounded-full border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-caps whitespace-nowrap hover:bg-surface-container-highest transition-colors active:scale-95">Replies</button>
+<button class="px-4 py-2 rounded-full border border-outline-variant bg-surface-container-low text-on-surface-variant font-label-caps whitespace-nowrap hover:bg-surface-container-highest transition-colors active:scale-95">Warm Leads</button>
+</div>
+</div>
+<!-- Priority AI Highlight -->
+<div class="glass-card rounded-xl p-5 relative overflow-hidden ai-active-glow cursor-pointer hover:bg-surface-container-highest transition-colors flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary-container"></div>
+<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center border border-primary-container/30 relative">
+<span class="material-symbols-outlined text-primary-container text-[24px]">local_fire_department</span>
+<div class="w-2 h-2 rounded-full bg-primary-container absolute -top-1 -right-1 ai-pulse"></div>
+</div>
+<div class="flex-grow flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-secondary-container tracking-wider uppercase">Priority Insight</span>
+<span class="font-mono-data text-on-surface-variant text-xs">Just now</span>
+</div>
+<h3 class="font-title-md text-on-surface">New Call-Ready Lead</h3>
+<p class="font-body-sm text-on-surface-variant leading-relaxed">AI detected strong buying intent from Alex. Recent engagement with pricing page and technical docs indicates high readiness.</p>
+</div>
+<button class="flex-shrink-0 w-full sm:w-auto px-6 py-2 rounded-full bg-primary-container text-on-primary-container font-label-caps uppercase btn-primary active:scale-95 transition-transform whitespace-nowrap mt-2 sm:mt-0">
+                View Lead
+            </button>
+</div>
+<!-- Notification List -->
+<div class="flex flex-col gap-3 mt-4">
+<!-- Item: Reply -->
+<div class="glass-card rounded-xl p-4 flex gap-4 items-start cursor-pointer hover:bg-surface-container-highest transition-colors group">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center border border-outline-variant group-hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px] group-hover:text-primary">reply</span>
+</div>
+<div class="flex-grow flex flex-col">
+<div class="flex justify-between items-baseline gap-2">
+<span class="font-title-md text-on-surface text-base">Sarah Jenkins replied to your email</span>
+<span class="font-mono-data text-on-surface-variant text-xs whitespace-nowrap">10m ago</span>
+</div>
+<p class="font-body-sm text-on-surface-variant truncate max-w-[280px] sm:max-w-md">"Thanks for the breakdown. Can we schedule a quick sync tomorrow to go over the integration steps?"</p>
+</div>
+</div>
+<!-- Item: System/AI Update -->
+<div class="glass-card rounded-xl p-4 flex gap-4 items-start cursor-pointer hover:bg-surface-container-highest transition-colors group">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center border border-outline-variant group-hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px] group-hover:text-primary">psychology</span>
+</div>
+<div class="flex-grow flex flex-col">
+<div class="flex justify-between items-baseline gap-2">
+<span class="font-title-md text-on-surface text-base">Daily Pipeline Summary Ready</span>
+<span class="font-mono-data text-on-surface-variant text-xs whitespace-nowrap">1h ago</span>
+</div>
+<p class="font-body-sm text-on-surface-variant">Your AI assistant has prepared your morning briefing. 3 accounts require immediate attention.</p>
+</div>
+</div>
+<!-- Item: Warm Lead -->
+<div class="glass-card rounded-xl p-4 flex gap-4 items-start cursor-pointer hover:bg-surface-container-highest transition-colors group opacity-75">
+<div class="flex-shrink-0 w-10 h-10 rounded-full bg-surface-bright flex items-center justify-center border border-outline-variant group-hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px] group-hover:text-primary">trending_up</span>
+</div>
+<div class="flex-grow flex flex-col">
+<div class="flex justify-between items-baseline gap-2">
+<span class="font-title-md text-on-surface text-base">TechCorp engagement spike</span>
+<span class="font-mono-data text-on-surface-variant text-xs whitespace-nowrap">3h ago</span>
+</div>
+<p class="font-body-sm text-on-surface-variant">Multiple stakeholders from TechCorp have visited the enterprise features page in the last hour.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-4 left-4 right-4 rounded-full mx-auto max-w-md bg-surface-container/85 backdrop-blur-lg border border-outline-variant/20 shadow-[0_4px_24px_0_rgba(253,208,0,0.15)] flex justify-around items-center px-6 py-3 pb-safe z-50">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors gap-1" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors gap-1" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-caps text-[10px]">Leads</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary drop-shadow-[0_0_8px_rgba(253,208,0,0.6)] active:scale-90 transition-transform gap-1" href="#">
+<span class="material-symbols-outlined" data-icon="notifications" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span class="font-label-caps text-[10px]">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors gap-1" href="#">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+<span class="font-label-caps text-[10px]">More</span>
+</a>
+</nav>
+</body></html>

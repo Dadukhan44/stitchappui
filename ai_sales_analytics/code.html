@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Geist:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#201f1f",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353534",
+                        "surface-dim": "#131313",
+                        "tertiary-fixed-dim": "#c9c6c4",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#4d4632",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary": "#f4f0ee",
+                        "on-tertiary-container": "#5d5b5a",
+                        "on-secondary-fixed-variant": "#5e4100",
+                        "outline": "#999077",
+                        "secondary": "#ffdb9f",
+                        "surface-tint": "#edc200",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#271900",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-primary": "#725c00",
+                        "on-primary-fixed-variant": "#564500",
+                        "on-background": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "background": "#131313",
+                        "on-secondary-container": "#6b4b00",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "surface": "#131313",
+                        "surface-bright": "#3a3939",
+                        "primary": "#fff0c8",
+                        "secondary-fixed-dim": "#ffba26",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "inverse-on-surface": "#313030",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#6e5900",
+                        "secondary-container": "#ffb700",
+                        "on-tertiary": "#31302f",
+                        "surface-container-highest": "#353534",
+                        "on-secondary": "#422d00",
+                        "primary-container": "#fdd000",
+                        "tertiary-container": "#d7d4d2",
+                        "primary-fixed-dim": "#edc200",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "primary-fixed": "#ffe07d",
+                        "on-primary": "#3b2f00",
+                        "secondary-fixed": "#ffdea9",
+                        "tertiary-fixed": "#e5e2e0",
+                        "on-primary-fixed": "#231b00",
+                        "on-surface-variant": "#d1c6ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap": "16px",
+                        "base-unit": "4px",
+                        "section-gap": "32px",
+                        "container-padding": "20px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "label-caps": ["Geist"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "mono-data": ["Geist"],
+                        "title-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "mono-data": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(42, 41, 41, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid #444342;
+            box-shadow: inset 1px 1px 0px rgba(255, 255, 255, 0.05);
+        }
+        .ai-pulse {
+            animation: pulse 2s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; box-shadow: 0 0 12px 2px rgba(253, 208, 0, 0.5); }
+            100% { opacity: 0.4; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-lg min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- Navigation Drawer (Desktop) -->
+<div class="hidden md:block bg-surface-container-low text-primary font-body-lg h-full rounded-r-xl shadow-xl fixed inset-y-0 left-0 w-80 z-[60]">
+<div class="p-container-padding flex flex-col h-full">
+<div class="flex items-center gap-4 mb-section-gap">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="Sales Executive" class="w-full h-full object-cover" data-alt="A futuristic portrait of a sales executive in a dark, high-contrast lighting setup, reflecting authority and precision. Subtle glowing yellow accents hint at advanced technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxuEbKb9QRA6JkFQuv_OEnyy8vv7RUxfGJiNUcWB5iPN-EYnNVAuZqRsNGB7R6JudJVbWVFbkl5UeqOLd8TkmWce8KlwnmbOimfQv0_dnvHI0akyAHGDjOoAVkfQU8tJprqDcOzloBs6d738I6NaEWjTfmcGJiSDRBlDS2JBoLaY9NtSTZcZWkr4yEO7VjMU8tEAitHeh-QMBEs71SIMWn1n6w2rjFePfwJ_FQMV_fnyTWZXSRkUOH"/>
+</div>
+<div class="left_align">
+<div class="font-headline-lg text-headline-lg text-primary tracking-tight">Alex Rivers</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Global Sales Director</div>
+<div class="font-label-caps text-label-caps text-secondary-container mt-1">Premium Tier</div>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors slide-in transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span>AI Strategy</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors slide-in transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="filter_list">filter_list</span>
+<span>Pipeline Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container hover:bg-surface-container-highest transition-colors slide-in transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Team Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors slide-in transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Account</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- Main Content Area -->
+<main class="md:ml-80 pb-32 md:pb-8">
+<!-- TopAppBar -->
+<header class="bg-background/80 backdrop-blur-xl border-b border-outline-variant/30 flat no shadows flex justify-between items-center px-container-padding py-4 w-full sticky top-0 z-40">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30 md:hidden">
+<img alt="Executive User Profile" class="w-full h-full object-cover" data-alt="A small, circular avatar image of a professional in a dark, moody environment with subtle neon lighting, emphasizing a sleek and modern look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_x50hV7XHgFyGLLkdFiXMp8JIO4_kYJPKlnZXQh4wF1MeN-x1IcgZPifV8jC0abNfUzmeceLk7kDoEiuGqr8OAMVmVqjBw2gbKVDH9JjTSKWGZjfwPlj2kXo0DiLGj8zIyx2sx9rTxHBGs5DShz-8BQ5pK_ObeF3orDLvNyhy-llwPW8rmPDLWqQr-n8deD38T0DEl1Edc461otrgmv8fwobESfke8JQ53ogaYKcLg8CKQdILnhn3"/>
+</div>
+<h1 class="font-display-lg text-title-md text-primary tracking-tight md:font-headline-lg md:text-headline-lg">Analytics</h1>
+</div>
+<button class="text-primary hover:bg-surface-container-high transition-colors p-2 rounded-full Active: scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</button>
+</header>
+<div class="px-container-padding max-w-[1200px] mx-auto mt-section-gap space-y-section-gap">
+<!-- AI Insight Banner -->
+<div class="glass-panel rounded-xl p-container-padding relative overflow-hidden border-l-[3px] border-l-primary-container">
+<div class="flex items-start gap-4">
+<div class="mt-1 w-2 h-2 rounded-full bg-primary-container ai-pulse"></div>
+<div>
+<h3 class="font-title-md text-title-md text-primary mb-2">Predictive Insight</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Conversion rates for 'Warm Leads' are tracking 12% higher than last month. Consider allocating more resources to Follow-up sequences this week.</p>
+</div>
+</div>
+</div>
+<!-- Metrics Grid -->
+<div class="grid grid-cols-2 lg:grid-cols-3 gap-gutter">
+<div class="glass-panel rounded-xl p-4 flex flex-col justify-between aspect-square md:aspect-auto md:h-32">
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Leads</div>
+<div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary">2,450</div>
+<div class="font-body-sm text-body-sm text-secondary-container mt-1">+14%</div>
+</div>
+</div>
+<div class="glass-panel rounded-xl p-4 flex flex-col justify-between aspect-square md:aspect-auto md:h-32">
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Qualified</div>
+<div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary">892</div>
+<div class="font-body-sm text-body-sm text-secondary-container mt-1">+8%</div>
+</div>
+</div>
+<div class="glass-panel rounded-xl p-4 flex flex-col justify-between aspect-square md:aspect-auto md:h-32">
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Replies</div>
+<div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary">415</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1">-2%</div>
+</div>
+</div>
+<div class="glass-panel rounded-xl p-4 flex flex-col justify-between aspect-square md:aspect-auto md:h-32">
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider flex items-center justify-between">
+                        Warm Leads
+                        <span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+</div>
+<div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary">128</div>
+<div class="font-body-sm text-body-sm text-secondary-container mt-1">+24%</div>
+</div>
+</div>
+<div class="glass-panel rounded-xl p-4 flex flex-col justify-between aspect-square md:aspect-auto md:h-32">
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Calls</div>
+<div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary">64</div>
+<div class="font-body-sm text-body-sm text-secondary-container mt-1">+5%</div>
+</div>
+</div>
+<div class="glass-panel rounded-xl p-4 flex flex-col justify-between aspect-square md:aspect-auto md:h-32">
+<div class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Conversions</div>
+<div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary">22</div>
+<div class="font-body-sm text-body-sm text-secondary-container mt-1">+18%</div>
+</div>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-stack-gap">
+<!-- Funnel Chart (Visual Representation) -->
+<div class="glass-panel rounded-xl p-container-padding flex flex-col">
+<h3 class="font-title-md text-title-md text-primary mb-6">Funnel Progression</h3>
+<div class="flex-1 flex flex-col justify-center gap-3">
+<div class="w-full flex items-center gap-4">
+<div class="font-mono-data text-mono-data text-on-surface-variant w-16 text-right">100%</div>
+<div class="h-8 bg-surface-container-high rounded-r-full w-full relative overflow-hidden group">
+<div class="absolute inset-y-0 left-0 bg-primary-container/20 w-full transition-all duration-500"></div>
+</div>
+</div>
+<div class="w-full flex items-center gap-4">
+<div class="font-mono-data text-mono-data text-on-surface-variant w-16 text-right">36%</div>
+<div class="h-8 bg-surface-container-high rounded-r-full w-[80%] relative overflow-hidden group">
+<div class="absolute inset-y-0 left-0 bg-primary-container/40 w-full transition-all duration-500"></div>
+</div>
+</div>
+<div class="w-full flex items-center gap-4">
+<div class="font-mono-data text-mono-data text-on-surface-variant w-16 text-right">17%</div>
+<div class="h-8 bg-surface-container-high rounded-r-full w-[60%] relative overflow-hidden group">
+<div class="absolute inset-y-0 left-0 bg-primary-container/60 w-full transition-all duration-500"></div>
+</div>
+</div>
+<div class="w-full flex items-center gap-4">
+<div class="font-mono-data text-mono-data text-on-surface-variant w-16 text-right">5%</div>
+<div class="h-8 bg-surface-container-high rounded-r-full w-[40%] relative overflow-hidden group">
+<div class="absolute inset-y-0 left-0 bg-primary-container/80 w-full transition-all duration-500"></div>
+</div>
+</div>
+<div class="w-full flex items-center gap-4">
+<div class="font-mono-data text-mono-data text-on-surface-variant w-16 text-right">0.9%</div>
+<div class="h-8 bg-surface-container-high rounded-r-full w-[20%] relative overflow-hidden group">
+<div class="absolute inset-y-0 left-0 bg-primary-container w-full transition-all duration-500 shadow-[0_0_12px_rgba(253,208,0,0.3)]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Platform Performance (Visual Line Chart Representation) -->
+<div class="glass-panel rounded-xl p-container-padding flex flex-col h-64">
+<h3 class="font-title-md text-title-md text-primary mb-4">Platform Performance</h3>
+<div class="flex-1 relative border-l border-b border-outline-variant/30 mt-4 mx-4">
+<!-- Abstract lines representing data -->
+<svg class="absolute inset-0 h-full w-full" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0,80 Q20,60 40,70 T80,40 T100,20" fill="none" stroke="#fdd000" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+<path d="M0,90 Q30,80 50,85 T90,60 T100,50" fill="none" stroke="#4d4632" stroke-dasharray="4" stroke-width="1.5" vector-effect="non-scaling-stroke"></path>
+<!-- Data points -->
+<circle class="ai-pulse" cx="80" cy="40" fill="#fdd000" r="3"></circle>
+<circle cx="100" cy="20" fill="#fdd000" r="3"></circle>
+</svg>
+<!-- Axis labels -->
+<div class="absolute -bottom-6 left-0 right-0 flex justify-between font-mono-data text-[10px] text-on-surface-variant">
+<span>Mon</span>
+<span>Wed</span>
+<span>Fri</span>
+<span>Sun</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden bg-surface-container/85 backdrop-blur-lg border border-outline-variant/20 shadow-[0_4px_24px_0_rgba(253,208,0,0.15)] fixed bottom-4 left-4 right-4 rounded-full mx-auto max-w-md z-50 flex justify-around items-center px-6 py-3 pb-safe">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors Active: scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors Active: scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-caps text-label-caps mt-1">Leads</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors Active: scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+<span class="font-label-caps text-label-caps mt-1">Outreach</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors Active: scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="dynamic_feed">dynamic_feed</span>
+<span class="font-label-caps text-label-caps mt-1">Follow-ups</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary drop-shadow-[0_0_8px_rgba(253,208,0,0.6)] hover:text-primary/80 transition-colors Active: scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+<span class="font-label-caps text-label-caps mt-1">More</span>
+</a>
+</nav>
+</body></html>

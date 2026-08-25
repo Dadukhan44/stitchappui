@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conversations - Inbox</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Geist:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#201f1f",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-variant": "#353534",
+                        "surface-dim": "#131313",
+                        "tertiary-fixed-dim": "#c9c6c4",
+                        "on-error-container": "#ffdad6",
+                        "outline-variant": "#4d4632",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary": "#f4f0ee",
+                        "on-tertiary-container": "#5d5b5a",
+                        "on-secondary-fixed-variant": "#5e4100",
+                        "outline": "#999077",
+                        "secondary": "#ffdb9f",
+                        "surface-tint": "#edc200",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#271900",
+                        "surface-container-lowest": "#0e0e0e",
+                        "inverse-primary": "#725c00",
+                        "on-primary-fixed-variant": "#564500",
+                        "on-background": "#e5e2e1",
+                        "surface-container-low": "#1c1b1b",
+                        "background": "#131313",
+                        "on-secondary-container": "#6b4b00",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "surface": "#131313",
+                        "surface-bright": "#3a3939",
+                        "primary": "#fff0c8",
+                        "secondary-fixed-dim": "#ffba26",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "inverse-on-surface": "#313030",
+                        "error-container": "#93000a",
+                        "on-primary-container": "#6e5900",
+                        "secondary-container": "#ffb700",
+                        "on-tertiary": "#31302f",
+                        "surface-container-highest": "#353534",
+                        "on-secondary": "#422d00",
+                        "primary-container": "#fdd000",
+                        "tertiary-container": "#d7d4d2",
+                        "primary-fixed-dim": "#edc200",
+                        "error": "#ffb4ab",
+                        "on-error": "#690005",
+                        "primary-fixed": "#ffe07d",
+                        "on-primary": "#3b2f00",
+                        "secondary-fixed": "#ffdea9",
+                        "tertiary-fixed": "#e5e2e0",
+                        "on-primary-fixed": "#231b00",
+                        "on-surface-variant": "#d1c6ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-gap": "16px",
+                        "base-unit": "4px",
+                        "section-gap": "32px",
+                        "container-padding": "20px",
+                        "gutter": "12px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "label-caps": ["Geist"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "mono-data": ["Geist"],
+                        "title-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "mono-data": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background-color: rgba(42, 41, 41, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #444342;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .ai-glow {
+            box-shadow: 0 0 24px 0 rgba(253, 208, 0, 0.15);
+        }
+        .intent-bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #FFB700;
+            border-radius: 4px 0 0 4px;
+        }
+        @keyframes ai-pulse {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+        .ai-pulse-dot {
+            animation: ai-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        /* Hide scrollbar for horizontal scrolling lists */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-xl docked full-width border-b border-outline-variant/30 flex justify-between items-center px-container-padding py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="hover:bg-surface-container-high transition-colors rounded-full p-2 -ml-2">
+<img alt="Executive User Profile" class="w-10 h-10 rounded-full object-cover border border-outline-variant/30" data-alt="A highly detailed close-up portrait of a corporate executive in a modern office setting. The lighting is dramatic and cinematic, highlighting sharp facial features against a dark, moody background. Professional attire, conveying authority and focus. Taken with a telephoto lens for shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8Mgjy3LswK-vlgQPKLJcb11cWKBnj5uk1AO5Kua6h6wFwatGvk8DDCyn6vJv8XglK9MhqqcZwicsJDHNcCmMnY5FNGUIytO-PxLKTu3gGqDysT40v6tXexCVDL9FMQSKDVSXV9E0f2uIJE9IS21j8KFb5j4ywgFx1vn5MIj4lDZ2QnmeBM0IcX0JZQLvQyttkxltyyYcln_uIsu_ZC0nFuk4BgRoO4rOz-VAtCVeXsktsKA-ZKLbH"/>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight md:hidden">Conversations</h1>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight hidden md:block">Conversations</h1>
+</div>
+<button class="hover:bg-surface-container-high transition-colors text-primary rounded-full p-2">
+<span class="material-symbols-outlined" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 0;">auto_awesome</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="pt-24 px-container-padding md:max-w-5xl md:mx-auto">
+<!-- Filter Chips -->
+<div class="flex gap-3 overflow-x-auto no-scrollbar pb-4 mb-stack-gap">
+<button class="px-5 py-2 rounded-full bg-primary-container text-on-primary-container font-label-caps text-label-caps whitespace-nowrap shadow-[0_4px_14px_0_rgba(253,208,0,0.39)]">All</button>
+<button class="px-5 py-2 rounded-full bg-surface-container border border-outline-variant/30 text-on-surface-variant font-label-caps text-label-caps whitespace-nowrap hover:bg-surface-container-high transition-colors">Positive</button>
+<button class="px-5 py-2 rounded-full bg-surface-container border border-outline-variant/30 text-on-surface-variant font-label-caps text-label-caps whitespace-nowrap hover:bg-surface-container-high transition-colors">Follow-up</button>
+<button class="px-5 py-2 rounded-full bg-surface-container border border-outline-variant/30 text-secondary-container font-label-caps text-label-caps whitespace-nowrap flex items-center gap-1 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px]">local_fire_department</span> Hot
+            </button>
+</div>
+<!-- Inbox List -->
+<div class="flex flex-col gap-stack-gap">
+<!-- Hot Lead Card -->
+<div class="glass-card rounded-xl p-5 relative ai-glow -mx-3 px-8 md:mx-0">
+<div class="intent-bar"></div>
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="A professional headshot of a confident tech CEO in a dark, minimalist studio. Ambient blue and gold rim lighting emphasizes a high-tech, forward-thinking mood. The subject wears a sharp dark suit. Ultra high definition, sharp focus on the eyes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCsoQEOo93_EUxRSrkWjsclZTOUKvglm8MJMzIbDVbu8Ns5Ms89M9ibE4NAfU9CHopm7VRag-leHciGA_COgo0kbHz09yXPjynruq8Li21z3Ya5oLoavLzXkPggslkvvjvAf6UHJyeywY-ck4voAgHQmdAVSSa4MWUA1diybLZAhGIWRqDoi7VD8F0mkegM7x0erUjyZkGVwXi776lP1HV_p7dlNc5OYE-FVSsojF_zsAKIpB4myJJ"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-primary-container rounded-full border-2 border-[#2A2929] flex items-center justify-center">
+<span class="w-1.5 h-1.5 bg-[#2A2929] rounded-full ai-pulse-dot"></span>
+</div>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-background">Sarah Jenkins</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">VP of Engineering, TechFlow</p>
+</div>
+</div>
+<span class="font-mono-data text-mono-data text-on-surface-variant">10m ago</span>
+</div>
+<div class="mb-3">
+<div class="inline-flex items-center gap-1.5 bg-primary-container/10 border border-primary-container/30 px-2 py-1 rounded mb-2">
+<span class="material-symbols-outlined text-[14px] text-primary-container">local_fire_department</span>
+<span class="font-label-caps text-label-caps text-primary-container font-bold">🔥 CALL READY</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface line-clamp-2">"The ROI projection looks incredibly promising. I'd like to jump on a quick sync this afternoon to finalize the deployment schedule. Are you free at 3 PM?"</p>
+</div>
+<div class="flex gap-2 mt-4">
+<button class="flex-1 bg-primary-container text-on-primary-container py-2.5 rounded-full font-label-caps text-label-caps shadow-[0_4px_14px_0_rgba(253,208,0,0.39)] transition-transform active:scale-95">Accept 3 PM</button>
+<button class="flex-1 bg-white/10 border border-outline-variant/30 text-white py-2.5 rounded-full font-label-caps text-label-caps transition-transform active:scale-95 hover:bg-surface-container-high">Reschedule</button>
+</div>
+</div>
+<!-- Positive Intent Card -->
+<div class="glass-card rounded-xl p-5 relative">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Candid portrait of a creative director in an industrial loft workspace. Warm tungsten lighting casts soft shadows. The atmosphere is energetic and modern. High contrast, sharp details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8fyUgePD0puToofv5qepSoY4S-r9dFfCkTdyaj3ANLxGnKKv4itehQ5rgqk7Qu5KvuqP4fsHTrOdEhXTsG0sfVR7OHjOihCzk7UK5sHiZGCjZnWBfhdxYTj9y6PpAVCRWtO8Kh9ePgRARrEwie9UTk7QvaUbNgZl9bXMmKHLOVODSg4fHYVronHzd0eizNBLw22HQEK9nxkeqAAv7S9PwlaARk-vejHS1ajAV6duiIRBJy3St43uC"/>
+<div>
+<h3 class="font-title-md text-title-md text-on-background">Marcus Thorne</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Director of Sales, Omnicorp</p>
+</div>
+</div>
+<span class="font-mono-data text-mono-data text-on-surface-variant">2h ago</span>
+</div>
+<div class="mb-3">
+<div class="inline-flex items-center gap-1.5 bg-surface-container border border-primary-container/30 px-2 py-1 rounded mb-2">
+<span class="w-1.5 h-1.5 bg-primary-container rounded-full ai-pulse-dot"></span>
+<span class="font-label-caps text-label-caps text-primary-container">Positive Intent</span>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface line-clamp-2">"Thanks for sending over the case studies. The results are impressive. I need to run this past the board next week, but I'm optimistic."</p>
+</div>
+</div>
+<!-- Standard Card -->
+<div class="glass-card rounded-xl p-5 relative">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center border border-outline-variant/30 text-title-md font-title-md text-on-surface-variant">
+                            EL
+                        </div>
+<div>
+<h3 class="font-title-md text-title-md text-on-background">Elena Rostova</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Operations Manager</p>
+</div>
+</div>
+<span class="font-mono-data text-mono-data text-on-surface-variant">Yesterday</span>
+</div>
+<div>
+<p class="font-body-lg text-body-lg text-on-surface line-clamp-2 text-on-surface-variant">"Can we push our check-in to next Thursday? We are currently dealing with an internal audit and things are a bit chaotic."</p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-6 py-3 pb-safe bg-surface-container/85 backdrop-blur-lg border-t border-outline-variant/20 shadow-[0_4px_24px_0_rgba(253,208,0,0.15)] rounded-t-xl" style="border-top: none; /* Override border per mandate */ box-shadow: 0 -4px 24px rgba(0,0,0,0.5);">
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors w-16">
+<span class="material-symbols-outlined mb-1" data-icon="home" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-caps text-label-caps text-[10px]">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors w-16">
+<span class="material-symbols-outlined mb-1" data-icon="group" style="font-variation-settings: 'FILL' 0;">group</span>
+<span class="font-label-caps text-label-caps text-[10px]">Leads</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors w-16">
+<span class="material-symbols-outlined mb-1" data-icon="rocket_launch" style="font-variation-settings: 'FILL' 0;">rocket_launch</span>
+<span class="font-label-caps text-label-caps text-[10px]">Outreach</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary drop-shadow-[0_0_8px_rgba(253,208,0,0.6)] w-16 transform scale-90 transition-transform">
+<span class="material-symbols-outlined mb-1 text-primary-container" data-icon="dynamic_feed" style="font-variation-settings: 'FILL' 1;">dynamic_feed</span>
+<span class="font-label-caps text-label-caps text-[10px] text-primary-container">Follow-ups</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors w-16">
+<span class="material-symbols-outlined mb-1" data-icon="more_horiz" style="font-variation-settings: 'FILL' 0;">more_horiz</span>
+<span class="font-label-caps text-label-caps text-[10px]">More</span>
+</button>
+</nav>
+</body></html>

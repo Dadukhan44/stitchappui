@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Leads Pipeline</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&family=Geist:wght@500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Hanken+Grotesk:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "surface-container": "#201f1f",
+                            "surface-container-high": "#2a2a2a",
+                            "surface-variant": "#353534",
+                            "surface-dim": "#131313",
+                            "tertiary-fixed-dim": "#c9c6c4",
+                            "on-error-container": "#ffdad6",
+                            "outline-variant": "#4d4632",
+                            "inverse-surface": "#e5e2e1",
+                            "tertiary": "#f4f0ee",
+                            "on-tertiary-container": "#5d5b5a",
+                            "on-secondary-fixed-variant": "#5e4100",
+                            "outline": "#999077",
+                            "secondary": "#ffdb9f",
+                            "surface-tint": "#edc200",
+                            "on-surface": "#e5e2e1",
+                            "on-secondary-fixed": "#271900",
+                            "surface-container-lowest": "#0e0e0e",
+                            "inverse-primary": "#725c00",
+                            "on-primary-fixed-variant": "#564500",
+                            "on-background": "#e5e2e1",
+                            "surface-container-low": "#1c1b1b",
+                            "background": "#131313",
+                            "on-secondary-container": "#6b4b00",
+                            "on-tertiary-fixed-variant": "#484645",
+                            "surface": "#131313",
+                            "surface-bright": "#3a3939",
+                            "primary": "#fff0c8",
+                            "secondary-fixed-dim": "#ffba26",
+                            "on-tertiary-fixed": "#1c1b1b",
+                            "inverse-on-surface": "#313030",
+                            "error-container": "#93000a",
+                            "on-primary-container": "#6e5900",
+                            "secondary-container": "#ffb700",
+                            "on-tertiary": "#31302f",
+                            "surface-container-highest": "#353534",
+                            "on-secondary": "#422d00",
+                            "primary-container": "#fdd000",
+                            "tertiary-container": "#d7d4d2",
+                            "primary-fixed-dim": "#edc200",
+                            "error": "#ffb4ab",
+                            "on-error": "#690005",
+                            "primary-fixed": "#ffe07d",
+                            "on-primary": "#3b2f00",
+                            "secondary-fixed": "#ffdea9",
+                            "tertiary-fixed": "#e5e2e0",
+                            "on-primary-fixed": "#231b00",
+                            "on-surface-variant": "#d1c6ab"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.25rem",
+                            "lg": "0.5rem",
+                            "xl": "0.75rem",
+                            "full": "9999px"
+                    },
+                    "spacing": {
+                            "stack-gap": "16px",
+                            "base-unit": "4px",
+                            "section-gap": "32px",
+                            "container-padding": "20px",
+                            "gutter": "12px"
+                    },
+                    "fontFamily": {
+                            "body-lg": ["Hanken Grotesk"],
+                            "body-sm": ["Hanken Grotesk"],
+                            "headline-lg-mobile": ["Hanken Grotesk"],
+                            "label-caps": ["Geist"],
+                            "display-lg": ["Hanken Grotesk"],
+                            "headline-lg": ["Hanken Grotesk"],
+                            "mono-data": ["Geist"],
+                            "title-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                            "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                            "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                            "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                            "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                            "mono-data": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                            "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0F0F0F;
+            color: #e5e2e1;
+        }
+        .glass-panel {
+            background: rgba(42, 41, 41, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #444342;
+            border-top-color: rgba(150, 150, 150, 0.3);
+            border-left-color: rgba(150, 150, 150, 0.3);
+        }
+        .ai-pulse {
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes pulse-glow {
+            0% { opacity: 0.4; box-shadow: 0 0 0 0 rgba(253, 208, 0, 0.7); }
+            50% { opacity: 1; box-shadow: 0 0 8px 4px rgba(253, 208, 0, 0.3); }
+            100% { opacity: 0.4; box-shadow: 0 0 0 0 rgba(253, 208, 0, 0); }
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen pb-24 flex flex-col relative overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="bg-background/80 backdrop-blur-xl docked full-width top-0 border-b border-outline-variant/30 flat no shadows flex justify-between items-center px-container-padding py-4 w-full z-40 sticky top-0 md:hidden">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant/30" data-alt="A highly detailed portrait of an Executive User Profile, a professional sales director with a confident expression, sharply dressed in modern business attire. Cinematic lighting highlights facial features against a deep, dark monochromatic background. High contrast, premium aesthetic, 8k resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD39xSfEUm08b5zJCyaiLUawVtcLDUAHnNyMbXtpu4xbVpYP8pSP2kbiqkl_dH9T0rDJK5wgjPLzuGJTKJodhhI5FkRZSJpG17NDJrWcFBH0xAQf7m6rFF0oDip96qxbSm4B_NWrfW2CVKx5reSe-2BDipCuOPD5eNl3qQOI0YPC6TvpVd0pZ-whlAEh2jMkS_I-UhHWQ2gllMMOEcgGjtOYK2iU-IfPVf-dkm8xqMDNBSIfDIxp2j"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-display-lg text-title-md text-primary tracking-tight">Intelligence</h1>
+<button class="hover:bg-surface-container-high transition-colors text-on-surface-variant p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</button>
+</header>
+<!-- TopAppBar (Desktop) -->
+<header class="hidden md:flex bg-background/80 backdrop-blur-xl docked full-width top-0 border-b border-outline-variant/30 flat no shadows justify-between items-center px-container-padding py-4 w-full z-40 sticky top-0">
+<h1 class="font-headline-lg text-headline-lg font-display-lg text-primary tracking-tight">Intelligence</h1>
+<nav class="flex gap-6 items-center">
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-colors px-4 py-2 rounded-lg font-title-md text-title-md" href="#">Home</a>
+<a class="text-primary font-title-md text-title-md" href="#">Leads</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-colors px-4 py-2 rounded-lg font-title-md text-title-md" href="#">Outreach</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-colors px-4 py-2 rounded-lg font-title-md text-title-md" href="#">Follow-ups</a>
+<a class="text-on-surface-variant hover:bg-surface-container-high transition-colors px-4 py-2 rounded-lg font-title-md text-title-md" href="#">More</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hover:bg-surface-container-high transition-colors text-on-surface-variant p-2 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</button>
+<img class="w-10 h-10 rounded-full object-cover border border-outline-variant/30" data-alt="A highly detailed portrait of an Executive User Profile, a professional sales director with a confident expression, sharply dressed in modern business attire. Cinematic lighting highlights facial features against a deep, dark monochromatic background. High contrast, premium aesthetic, 8k resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD290LOg4WhFFGmK2RhxWD5tHHuioAJJBEt0jR6wZjKqJA8Fs9PwwoNF8oL60yRWnU9tng46VY-TT1HVtBDorbp3iVEOPQxbNKfBIX24J--fD537KILSVgNXBzACqPFMJWDFKIJaJnGb6JkNcScQ1Y9NXD9uMqbQvf2gIpQizqj3VJ7c5592Qv_lHzPwYkZUaffVtHmadMo9rQEl3Is_sWwVTZn2YHjEjgXanTdMhWSnaaP48yytmDl"/>
+</div>
+</header>
+<main class="flex-grow flex flex-col md:max-w-[1200px] mx-auto w-full px-container-padding py-section-gap gap-section-gap">
+<!-- Status Bar -->
+<section class="w-full">
+<div class="flex overflow-x-auto gap-3 pb-2 hide-scrollbar items-center">
+<button class="px-5 py-2 rounded-full bg-surface-container border border-outline-variant text-on-surface font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-container-high transition-colors">All</button>
+<button class="px-5 py-2 rounded-full bg-surface-container border border-outline-variant text-on-surface font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-container-high transition-colors">New</button>
+<button class="px-5 py-2 rounded-full bg-surface-container border border-outline-variant text-on-surface font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-container-high transition-colors">Qualified</button>
+<button class="px-5 py-2 rounded-full bg-surface-container border border-outline-variant text-on-surface font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-container-high transition-colors">Contacted</button>
+<button class="px-5 py-2 rounded-full bg-surface-container border border-outline-variant text-on-surface font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-container-high transition-colors">Replied</button>
+<button class="px-5 py-2 rounded-full bg-surface-container border border-outline-variant text-on-surface font-body-sm text-body-sm whitespace-nowrap hover:bg-surface-container-high transition-colors">Warm</button>
+<button class="px-5 py-2 rounded-full bg-primary-container/20 border border-primary-container text-primary font-body-sm text-body-sm whitespace-nowrap flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container ai-pulse"></span>
+                    Call Ready
+                </button>
+</div>
+</section>
+<!-- Leads List -->
+<section class="flex flex-col gap-stack-gap w-full md:grid md:grid-cols-2 lg:grid-cols-3">
+<!-- Call Ready Lead (Highlighted) -->
+<article class="glass-panel rounded-xl p-[20px] relative overflow-hidden flex flex-col gap-4 border-primary-container/50 shadow-[0_0_24px_0_rgba(253,208,0,0.15)] group cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary-container"></div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Sarah Jenkins</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Acme Corp</p>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-primary-container bg-primary-container/10 px-2 py-1 rounded">
+<span class="material-symbols-outlined text-sm" data-icon="psychology">psychology</span>
+<span class="font-mono-data text-mono-data">98 AI Score</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 mt-2">
+<div class="h-1.5 flex-grow bg-surface-dim rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[95%]"></div>
+</div>
+<span class="font-label-caps text-label-caps text-secondary-container uppercase">Hot</span>
+</div>
+<div class="mt-2 flex justify-between items-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Recently viewed pricing page 3 times.</p>
+<button class="bg-primary-container text-on-primary-container p-2 rounded-full flex items-center justify-center hover:scale-105 transition-transform shadow-[0_4px_14px_0_rgba(253,208,0,0.39)]">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</button>
+</div>
+</article>
+<!-- Warm Lead -->
+<article class="glass-panel rounded-xl p-[20px] relative overflow-hidden flex flex-col gap-4 cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Marcus Thorne</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Nexus Dynamics</p>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-on-surface bg-surface-container px-2 py-1 rounded">
+<span class="font-mono-data text-mono-data">82 AI Score</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 mt-2">
+<div class="h-1.5 flex-grow bg-surface-dim rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[75%]"></div>
+</div>
+<span class="font-label-caps text-label-caps text-secondary uppercase">Warm</span>
+</div>
+<div class="mt-2 flex justify-between items-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Opened latest outreach email.</p>
+<button class="bg-surface-container border border-outline-variant text-on-surface p-2 rounded-full flex items-center justify-center hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</button>
+</div>
+</article>
+<!-- Qualified Lead -->
+<article class="glass-panel rounded-xl p-[20px] relative overflow-hidden flex flex-col gap-4 cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Elena Rostova</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Global Tech Industries</p>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-on-surface bg-surface-container px-2 py-1 rounded">
+<span class="font-mono-data text-mono-data">70 AI Score</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 mt-2">
+<div class="h-1.5 flex-grow bg-surface-dim rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim w-[50%]"></div>
+</div>
+<span class="font-label-caps text-label-caps text-tertiary-fixed-dim uppercase">Cold</span>
+</div>
+<div class="mt-2 flex justify-between items-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">New lead matching ideal profile.</p>
+<button class="bg-surface-container border border-outline-variant text-on-surface p-2 rounded-full flex items-center justify-center hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+</button>
+</div>
+</article>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface-container/85 backdrop-blur-lg fixed bottom-4 left-4 right-4 rounded-full mx-auto max-w-md shadow-[0_4px_24px_0_rgba(253,208,0,0.15)] flex justify-around items-center px-6 py-3 pb-safe z-50 md:hidden border border-outline-variant/20">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors gap-1 group" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary drop-shadow-[0_0_8px_rgba(253,208,0,0.6)] hover:text-primary/80 transition-colors gap-1 group" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform" data-icon="group" data-weight="fill" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-caps text-label-caps">Leads</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors gap-1 group" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform" data-icon="rocket_launch">rocket_launch</span>
+<span class="font-label-caps text-label-caps">Outreach</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors gap-1 group" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform" data-icon="dynamic_feed">dynamic_feed</span>
+<span class="font-label-caps text-label-caps">Follow-ups</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary/80 transition-colors gap-1 group" href="#">
+<span class="material-symbols-outlined group-active:scale-90 transition-transform" data-icon="more_horiz">more_horiz</span>
+<span class="font-label-caps text-label-caps">More</span>
+</a>
+</nav>
+</body></html>

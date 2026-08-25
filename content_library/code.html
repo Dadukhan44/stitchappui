@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Content Library</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Geist:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#564500",
+                        "primary-fixed-dim": "#edc200",
+                        "primary-container": "#fdd000",
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary-container": "#ffb700",
+                        "surface-variant": "#353534",
+                        "on-primary": "#3b2f00",
+                        "surface-tint": "#edc200",
+                        "surface-container": "#201f1f",
+                        "error-container": "#93000a",
+                        "on-secondary": "#422d00",
+                        "secondary-fixed": "#ffdea9",
+                        "tertiary-fixed": "#e5e2e0",
+                        "surface-dim": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "on-surface": "#e5e2e1",
+                        "background": "#131313",
+                        "on-primary-fixed": "#231b00",
+                        "surface-container-low": "#1c1b1b",
+                        "outline-variant": "#4d4632",
+                        "error": "#ffb4ab",
+                        "on-tertiary-fixed-variant": "#484645",
+                        "on-secondary-fixed": "#271900",
+                        "outline": "#999077",
+                        "secondary": "#ffdb9f",
+                        "inverse-on-surface": "#313030",
+                        "on-surface-variant": "#d1c6ab",
+                        "on-secondary-container": "#6b4b00",
+                        "tertiary": "#f4f0ee",
+                        "on-background": "#e5e2e1",
+                        "on-tertiary-container": "#5d5b5a",
+                        "surface-container-highest": "#353534",
+                        "surface-bright": "#3a3939",
+                        "surface": "#131313",
+                        "primary": "#fff0c8",
+                        "surface-container-high": "#2a2a2a",
+                        "inverse-primary": "#725c00",
+                        "on-error": "#690005",
+                        "tertiary-fixed-dim": "#c9c6c4",
+                        "on-secondary-fixed-variant": "#5e4100",
+                        "on-tertiary": "#31302f",
+                        "secondary-fixed-dim": "#ffba26",
+                        "on-primary-container": "#6e5900",
+                        "inverse-surface": "#e5e2e1",
+                        "tertiary-container": "#d7d4d2",
+                        "primary-fixed": "#ffe07d",
+                        "on-tertiary-fixed": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base-unit": "4px",
+                        "section-gap": "32px",
+                        "gutter": "12px",
+                        "container-padding": "20px",
+                        "stack-gap": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "mono-data": ["Geist"],
+                        "label-caps": ["Geist"],
+                        "body-sm": ["Hanken Grotesk"],
+                        "title-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "mono-data": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0F0F0F;
+            color: #e5e2e1;
+        }
+        .glass-card {
+            background: rgba(42, 41, 41, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid #444342;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .ai-glow {
+            box-shadow: 0 4px 24px rgba(253, 208, 0, 0.15);
+        }
+        .intent-bar {
+            border-left: 3px solid #FFB700;
+        }
+        .ai-pulse {
+            animation: pulse-opacity 2s infinite ease-in-out;
+        }
+        @keyframes pulse-opacity {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+        /* Custom Scrollbar for tabs */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col pt-16 pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-surface-variant/30 shadow-sm flex justify-between items-center px-container-padding h-16">
+<div class="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<img alt="user_profile_photo" class="w-8 h-8 rounded-full object-cover border border-surface-variant/50" data-alt="A highly detailed close-up of a professional corporate headshot of a confident executive, warm studio lighting, dark background, sharp focus on the face, highly realistic, 8k resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW9IPOYm8WAObsLoi1RaWiSDHz_U5mwAcvMBH8IcxhgOCf46BAmm3HgbD7mQErev17o5lhRg0XPUh0Ytow5EH_iTQvYY8JG3CoSRp2pJMSFbp6qP4imFsZiMQDkG-9g_T6gA-i5pd4Nkajw-QPzd8Q06FYuOaU3_Q2xvkhAMzqB5PFklDFf3Jk3P9TDMMfCF8iFMGBMjT5-iIl4gjHU-rBNp3WIUaC4vHvpj6P1CtTRn_U9ocivZmg"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary tracking-tighter">SALES.AI</h1>
+<div class="flex items-center gap-2">
+<button class="text-primary hover:opacity-80 transition-opacity active:scale-95 duration-200 p-2">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+</button>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 w-full max-w-[1200px] mx-auto flex flex-col md:px-container-padding">
+<!-- Header & Tabs Section -->
+<div class="px-container-padding pt-6 pb-4 flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<h2 class="font-title-md text-title-md text-on-surface">Content Library</h2>
+<button class="bg-primary-container text-on-primary-fixed-variant px-4 py-2 rounded-full font-label-caps text-label-caps flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all shadow-[0_4px_14px_0_rgba(253,208,0,0.39)]">
+<span class="material-symbols-outlined text-[16px]">add</span> NEW
+                </button>
+</div>
+<!-- Scrollable Tabs -->
+<div class="flex gap-2 overflow-x-auto hide-scrollbar pb-2">
+<button class="px-4 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary font-label-caps text-label-caps whitespace-nowrap transition-colors">
+                    Scheduled
+                </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container border border-surface-variant text-on-surface-variant font-label-caps text-label-caps whitespace-nowrap hover:text-on-surface transition-colors">
+                    Drafts
+                </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container border border-surface-variant text-on-surface-variant font-label-caps text-label-caps whitespace-nowrap hover:text-on-surface transition-colors">
+                    Published
+                </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container border border-surface-variant text-on-surface-variant font-label-caps text-label-caps whitespace-nowrap hover:text-on-surface transition-colors">
+                    Failed
+                </button>
+</div>
+</div>
+<!-- Content List -->
+<div class="flex flex-col gap-stack-gap px-container-padding pb-6">
+<!-- Card 1: Scheduled (AI Accelerated) -->
+<div class="glass-card rounded-xl p-4 flex flex-col gap-3 intent-bar ai-glow relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -z-10 group-hover:bg-primary/10 transition-colors duration-500"></div>
+<div class="flex gap-4">
+<!-- Thumbnail -->
+<div class="w-20 h-20 shrink-0 rounded-lg overflow-hidden border border-surface-variant/50 relative">
+<img class="w-full h-full object-cover" data-alt="A highly detailed cinematic shot of a sleek modern office desk with a glowing laptop screen, dark moody lighting, cinematic composition, futuristic minimalist aesthetic, sharp focus, 8k resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBLqf08svKRcWOlIqL67QlFHeuvesszs55Plpm3imRbmMAjj5nHaGEEZUCTE2ReVTLtnBYK5Lfg-Nc40KyK-KtDz7OBpIUxm-kbtd8iGwyvojGhjzzhjgMCoMqblT_9lGTg0EdwX02QGfExpSPu-ZZ2NsNyurcFqYgK0GDJJUEmx1M2uvbbsAUBbZw-pxlvZFtOM33h-PfWBxK3cbEApPOZpRwqwluFRMOncU9_N-PtrsfIYnP-dPe"/>
+<div class="absolute top-1 left-1 bg-background/80 backdrop-blur text-primary font-label-caps text-[10px] px-1.5 py-0.5 rounded border border-primary/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">play_circle</span> REEL
+                        </div>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<p class="font-body-sm text-body-sm text-on-surface line-clamp-2 leading-tight">
+                                🚀 The future of enterprise sales isn't just about dialing more—it's about predictive AI...
+                            </p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<div class="flex gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">work</span>
+<span class="material-symbols-outlined text-[16px]">share</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary-container ai-pulse shadow-[0_0_8px_rgba(255,183,0,0.8)]"></div>
+<span class="font-mono-data text-mono-data text-secondary-container text-[11px]">Tom, 10:00 AM</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Draft -->
+<div class="glass-card rounded-xl p-4 flex flex-col gap-3">
+<div class="flex gap-4">
+<!-- Thumbnail -->
+<div class="w-20 h-20 shrink-0 rounded-lg overflow-hidden border border-surface-variant/50 relative bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-surface-variant text-3xl">image</span>
+<div class="absolute top-1 left-1 bg-background/80 backdrop-blur text-on-surface font-label-caps text-[10px] px-1.5 py-0.5 rounded border border-surface-variant">
+                            POST
+                        </div>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 leading-tight italic">
+                                Draft: Q3 performance metrics reveal surprising trends in...
+                            </p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<div class="flex gap-1 text-surface-variant">
+<span class="material-symbols-outlined text-[16px]">work</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-surface-variant"></div>
+<span class="font-mono-data text-mono-data text-on-surface-variant text-[11px]">Draft Saved</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: Scheduled -->
+<div class="glass-card rounded-xl p-4 flex flex-col gap-3">
+<div class="flex gap-4">
+<!-- Thumbnail -->
+<div class="w-20 h-20 shrink-0 rounded-lg overflow-hidden border border-surface-variant/50 relative">
+<img class="w-full h-full object-cover" data-alt="A highly detailed top-down view of a modern minimalist workspace setup, featuring a dark sleek keyboard, a glowing tablet with chart data, warm ambient lighting, elegant dark mode aesthetic, realistic photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7IZ1--wLHF4Iy0hiOOjP7SYq8exEUa7nsyFyJw38i8O-BFELfMY487-nkrXo0k2OhilSyljH0z_gDPcBg7mgOufOUjFJv4liNwtgbrixzEuVZ_pmlXhHGVmAJBsnoxXQmBHhGCmNgZBXF89hR5TnHNvNAipcHV8vRfrEY31YBDGehDFiWRqYqAGNE0SVO1cJuiXCT7PLbg34aoqjDlKYTWAtN06XEtdj9ApcVHPcxUnsk4dtWZFRl"/>
+<div class="absolute top-1 left-1 bg-background/80 backdrop-blur text-on-surface font-label-caps text-[10px] px-1.5 py-0.5 rounded border border-surface-variant">
+                            CAROUSEL
+                        </div>
+</div>
+<!-- Details -->
+<div class="flex-1 flex flex-col justify-between">
+<div>
+<p class="font-body-sm text-body-sm text-on-surface line-clamp-2 leading-tight">
+                                5 ways top performers are leveraging predictive analytics to close deals 30% faster. Swipe...
+                            </p>
+</div>
+<div class="flex items-center justify-between mt-2">
+<div class="flex gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">work</span>
+</div>
+<div class="flex items-center gap-1.5">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary-container"></div>
+<span class="font-mono-data text-mono-data text-on-surface-variant text-[11px]">Wed, 2:30 PM</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-base-unit left-container-padding right-container-padding rounded-xl z-50 bg-surface-container/80 backdrop-blur-xl border border-surface-variant/50 shadow-[0_4px_14px_0_rgba(253,208,0,0.15)] md:hidden">
+<ul class="flex justify-around items-center h-20 px-2">
+<li class="w-full">
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 w-full hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-label-caps text-label-caps text-[10px]">Home</span>
+</a>
+</li>
+<li class="w-full">
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 w-full hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person_search">person_search</span>
+<span class="font-label-caps text-label-caps text-[10px]">Leads</span>
+</a>
+</li>
+<li class="w-full">
+<a class="flex flex-col items-center justify-center text-primary-container font-bold bg-primary/10 rounded-lg py-1 w-full hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="send">send</span>
+<span class="font-label-caps text-label-caps text-[10px]">Outreach</span>
+</a>
+</li>
+<li class="w-full">
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 w-full hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="event_repeat">event_repeat</span>
+<span class="font-label-caps text-label-caps text-[10px]">Follow-ups</span>
+</a>
+</li>
+<li class="w-full">
+<a class="flex flex-col items-center justify-center text-on-surface-variant py-1 w-full hover:text-primary transition-colors active:scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="more_horiz">more_horiz</span>
+<span class="font-label-caps text-label-caps text-[10px]">More</span>
+</a>
+</li>
+</ul>
+</nav>
+</body></html>

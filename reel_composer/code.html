@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Content &amp; Distribution - Reel Mode</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Geist:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed-variant": "#564500",
+                      "primary-fixed-dim": "#edc200",
+                      "primary-container": "#fdd000",
+                      "surface-container-lowest": "#0e0e0e",
+                      "secondary-container": "#ffb700",
+                      "surface-variant": "#353534",
+                      "on-primary": "#3b2f00",
+                      "surface-tint": "#edc200",
+                      "surface-container": "#201f1f",
+                      "error-container": "#93000a",
+                      "on-secondary": "#422d00",
+                      "secondary-fixed": "#ffdea9",
+                      "tertiary-fixed": "#e5e2e0",
+                      "surface-dim": "#131313",
+                      "on-error-container": "#ffdad6",
+                      "on-surface": "#e5e2e1",
+                      "background": "#131313",
+                      "on-primary-fixed": "#231b00",
+                      "surface-container-low": "#1c1b1b",
+                      "outline-variant": "#4d4632",
+                      "error": "#ffb4ab",
+                      "on-tertiary-fixed-variant": "#484645",
+                      "on-secondary-fixed": "#271900",
+                      "outline": "#999077",
+                      "secondary": "#ffdb9f",
+                      "inverse-on-surface": "#313030",
+                      "on-surface-variant": "#d1c6ab",
+                      "on-secondary-container": "#6b4b00",
+                      "tertiary": "#f4f0ee",
+                      "on-background": "#e5e2e1",
+                      "on-tertiary-container": "#5d5b5a",
+                      "surface-container-highest": "#353534",
+                      "surface-bright": "#3a3939",
+                      "surface": "#131313",
+                      "primary": "#fff0c8",
+                      "surface-container-high": "#2a2a2a",
+                      "inverse-primary": "#725c00",
+                      "on-error": "#690005",
+                      "tertiary-fixed-dim": "#c9c6c4",
+                      "on-secondary-fixed-variant": "#5e4100",
+                      "on-tertiary": "#31302f",
+                      "secondary-fixed-dim": "#ffba26",
+                      "on-primary-container": "#6e5900",
+                      "inverse-surface": "#e5e2e1",
+                      "tertiary-container": "#d7d4d2",
+                      "primary-fixed": "#ffe07d",
+                      "on-tertiary-fixed": "#1c1b1b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base-unit": "4px",
+                      "section-gap": "32px",
+                      "gutter": "12px",
+                      "container-padding": "20px",
+                      "stack-gap": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": [
+                              "Hanken Grotesk"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "display-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "mono-data": [
+                              "Geist"
+                      ],
+                      "label-caps": [
+                              "Geist"
+                      ],
+                      "body-sm": [
+                              "Hanken Grotesk"
+                      ],
+                      "title-md": [
+                              "Hanken Grotesk"
+                      ],
+                      "headline-lg": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "mono-data": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background-color: rgba(42, 41, 41, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(68, 67, 66, 1);
+            border-top: 1px solid rgba(150, 150, 150, 0.3);
+            border-left: 1px solid rgba(150, 150, 150, 0.3);
+        }
+        .ai-glow {
+            box-shadow: 0 4px 24px rgba(253, 208, 0, 0.15);
+        }
+        .btn-glow {
+            box-shadow: 0 4px 14px 0 rgba(253, 208, 0, 0.39);
+        }
+        .input-recessed {
+            background-color: #0F0F0F;
+            border: 1px solid #444342;
+        }
+        .input-recessed:focus {
+            border-color: #fdd000;
+            box-shadow: inset 0 0 0 2px rgba(253, 208, 0, 0.5);
+            outline: none;
+        }
+        .pulse-dot {
+            animation: pulse 2s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased min-h-screen pb-[100px]">
+<!-- Top Navigation Placeholder (Since TopAppBar is for destinations, and this is a transactional creation screen, we suppress it or use a simplified back nav. Assuming a focused flow here.) -->
+<header class="fixed top-0 w-full z-50 glass-panel border-b-0 h-16 flex items-center px-container-padding justify-between">
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<div class="font-title-md text-title-md text-on-background font-bold tracking-tighter">Content &amp; Distribution</div>
+<button class="text-on-surface-variant hover:opacity-80 transition-opacity">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</header>
+<main class="pt-20 px-container-padding flex flex-col gap-section-gap">
+<!-- Segmented Control -->
+<div class="flex bg-surface-container-low rounded-lg p-1 w-full max-w-sm mx-auto border border-outline-variant/30">
+<button class="flex-1 py-2 font-label-caps text-label-caps text-on-surface-variant rounded-md transition-colors hover:bg-surface-variant/50">
+                POST
+            </button>
+<button class="flex-1 py-2 font-label-caps text-label-caps bg-primary-container text-on-primary-container rounded-md font-bold transition-all shadow-sm">
+                REEL
+            </button>
+</div>
+<!-- Video Preview Area -->
+<section class="flex flex-col items-center">
+<div class="w-full max-w-[320px] aspect-[9/16] bg-surface-container-highest rounded-xl border border-outline-variant/50 overflow-hidden relative flex items-center justify-center shadow-lg">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-luminosity" data-alt="A vertical 9:16 aspect ratio video preview showing a dynamic, modern office setting with an executive presenting, bathed in cool cinematic lighting with high-contrast shadows. The aesthetic is professional, sleek, and slightly futuristic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdFhOS8BVmm12ZPqcf6HJP0oAqr4oiJYIka2Hwf8-HcRiHszvlELx6Lc3upDEH-93IrFsSFngdHxvuafiQ0jSfxBmoa8moxsc5x3lMnxOndRDDwFW5kiZxJlS6kDxVULrGTwVB9MBCbFj2H7e4OaBGZIgJHnFDr8zC0UeER6MgpYizUnb0Rutge2BHY97_3IqyjBNEqLriHTRvTY9mH1KWVe8VMP0I7RKFsasU6folGvD27CNMfqSp"/>
+<!-- Play Overlay -->
+<div class="absolute inset-0 flex items-center justify-center bg-black/20">
+<div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center text-on-background">
+<span class="material-symbols-outlined text-4xl" data-icon="play_arrow" data-weight="fill">play_arrow</span>
+</div>
+</div>
+<!-- AI Processing indicator on preview -->
+<div class="absolute top-4 right-4 glass-panel px-3 py-1 rounded-full flex items-center gap-2 border-primary-container/30">
+<div class="w-2 h-2 rounded-full bg-primary-container pulse-dot"></div>
+<span class="font-label-caps text-label-caps text-primary-container">AI Tracking Active</span>
+</div>
+</div>
+<!-- Quick Actions -->
+<div class="flex justify-center gap-4 mt-stack-gap">
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="video_file">video_file</span>
+</div>
+<span class="font-mono-data text-mono-data text-[10px]">Replace</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="content_cut">content_cut</span>
+</div>
+<span class="font-mono-data text-mono-data text-[10px]">Trim</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="image">image</span>
+</div>
+<span class="font-mono-data text-mono-data text-[10px]">Cover</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="music_note">music_note</span>
+</div>
+<span class="font-mono-data text-mono-data text-[10px]">Audio</span>
+</button>
+</div>
+</section>
+<!-- AI Enhance Section -->
+<section class="glass-panel rounded-xl p-5 relative overflow-hidden ai-glow">
+<!-- Intent Bar -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary-container"></div>
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-primary-container" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="font-title-md text-title-md font-semibold">Enhance Reel with AI</h3>
+</div>
+<div class="flex flex-wrap gap-3">
+<button class="bg-white/10 hover:bg-white/20 border border-white/20 text-on-background px-4 py-2 rounded-full font-body-sm text-body-sm flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="format_quote">format_quote</span>
+                    Generate Caption
+                </button>
+<button class="bg-white/10 hover:bg-white/20 border border-white/20 text-on-background px-4 py-2 rounded-full font-body-sm text-body-sm flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="tag">tag</span>
+                    Suggest Hashtags
+                </button>
+<button class="bg-white/10 hover:bg-white/20 border border-white/20 text-on-background px-4 py-2 rounded-full font-body-sm text-body-sm flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="insights">insights</span>
+                    Improve Hook
+                </button>
+</div>
+</section>
+<!-- Reel Settings -->
+<section class="flex flex-col gap-stack-gap">
+<h3 class="font-title-md text-title-md font-semibold">Reel Settings</h3>
+<div class="flex flex-col gap-4">
+<div>
+<label class="block font-mono-data text-mono-data text-on-surface-variant mb-1">Title / Caption</label>
+<textarea class="w-full input-recessed rounded-lg p-3 font-body-sm text-body-sm text-on-background min-h-[100px] resize-none" placeholder="Write a compelling caption..."></textarea>
+</div>
+<div>
+<label class="block font-mono-data text-mono-data text-on-surface-variant mb-1">Hashtags</label>
+<input class="w-full input-recessed rounded-lg p-3 font-body-sm text-body-sm text-on-background" placeholder="#sales #ai #growth" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block font-mono-data text-mono-data text-on-surface-variant mb-1">Mentions</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]" data-icon="alternate_email">alternate_email</span>
+<input class="w-full input-recessed rounded-lg py-3 pr-3 pl-9 font-body-sm text-body-sm text-on-background" placeholder="Tag users" type="text"/>
+</div>
+</div>
+<div>
+<label class="block font-mono-data text-mono-data text-on-surface-variant mb-1">Location</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]" data-icon="location_on">location_on</span>
+<input class="w-full input-recessed rounded-lg py-3 pr-3 pl-9 font-body-sm text-body-sm text-on-background" placeholder="Add location" type="text"/>
+</div>
+</div>
+</div>
+<div>
+<label class="block font-mono-data text-mono-data text-on-surface-variant mb-1">Call to Action (Link)</label>
+<input class="w-full input-recessed rounded-lg p-3 font-body-sm text-body-sm text-on-background" placeholder="https://" type="url"/>
+</div>
+</div>
+</section>
+<!-- Publish To -->
+<section class="flex flex-col gap-stack-gap mb-12">
+<h3 class="font-title-md text-title-md font-semibold">Publish To</h3>
+<div class="flex flex-col gap-2">
+<label class="flex items-center justify-between glass-panel p-4 rounded-lg cursor-pointer hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[18px]" data-icon="camera_alt">camera_alt</span>
+</div>
+<span class="font-body-lg text-body-lg font-medium">Instagram Reels</span>
+</div>
+<input checked="" class="w-5 h-5 rounded border-outline-variant bg-surface-container text-primary-container focus:ring-primary-container focus:ring-offset-surface focus:ring-offset-2" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between glass-panel p-4 rounded-lg cursor-pointer hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[18px]" data-icon="thumb_up">thumb_up</span>
+</div>
+<span class="font-body-lg text-body-lg font-medium">Facebook Reels</span>
+</div>
+<input class="w-5 h-5 rounded border-outline-variant bg-surface-container text-primary-container focus:ring-primary-container focus:ring-offset-surface focus:ring-offset-2" type="checkbox"/>
+</label>
+</div>
+</section>
+</main>
+<!-- Sticky Bottom CTA -->
+<div class="fixed bottom-0 left-0 right-0 p-container-padding glass-panel border-t border-outline-variant/30 rounded-t-2xl z-40">
+<button class="w-full bg-primary-container text-on-primary-fixed btn-glow font-title-md text-title-md py-4 rounded-full font-bold active:scale-95 transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+            Review &amp; Distribute
+        </button>
+</div>
+</body></html>
